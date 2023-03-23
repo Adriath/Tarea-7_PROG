@@ -4,7 +4,9 @@ package ejercicio1.maestre;
 import utilidades.Utilidades;
 
 /**
- *
+ * Clase para operaciones con cadenas de la tarea 7 de programación.
+ * Marzc 2023.
+ * 
  * @author Adrián Arjona
  */
 public class UtilidadesCadenas {

@@ -8,6 +8,11 @@ package utilidades.excepciones_utilidades;
  */
 public class ExcepcionDecisionUsuario extends Exception{
     
+    /**
+     * Excepción de la clase ExcepcionDecisionUsuario.
+     * 
+     * @param msj Mensaje tipo String para el usuario/a.
+     */
     public ExcepcionDecisionUsuario(String msj){
         
         super(msj) ;

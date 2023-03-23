@@ -274,11 +274,6 @@ public class Utilidades {
         return letra ;
     }
     
-    public static void main(String[] args) {
-        char letra = leerCaracterBuffer("Introduce una letra: ") ;
-        
-        System.out.println("La letra seleccionada es: " + letra);
-    }
       
     /**
      * Método que crea un objeto de tipo BufferedReader para leer un número corto
@@ -352,7 +347,6 @@ public class Utilidades {
      * Método que extraerá la decisión del usuario, previamente validada con el método compruebaDecisionUsuario().
      * 
      * @param decision String. Mensaje al usuario/a.
-     * @see Utilidades.compruebaDecisionUsuario()
      * @return tipo boolean. Devuelve false si la respuesta es positiva y true si la respuesta es negativa.
      */
     public static boolean distingueEntreSiYNo(String decision){
@@ -377,8 +371,6 @@ public class Utilidades {
      * 
      * @param pregunta Tipo String. Es la pregunta que se hace al uusario/a para que decida. Irá siempre seguida de "(s/n)".
      * @return boolean validador. Devuelve la decision del usuario/a según seá sí o no.
-     * @see Utilidades.compruebaDecisionUsuario()
-     * @see Utilidades.distingueEntreSiYNo()
      */
     public static boolean secuenciaSalida(String pregunta){
         
