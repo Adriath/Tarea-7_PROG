@@ -42,6 +42,7 @@ public class Utilidades {
         return mensaje ;
     }
     
+       
      /**
      * Método que pide al usuario un número entero pudiendo personalizar el 
      * mensaje de petición.
@@ -79,6 +80,40 @@ public class Utilidades {
 
      
         return entero ;
+    }
+    
+    
+    /**
+     * Método que sirve para leer un caracter pedido al usuario/a.
+     * 
+     * @param msg Mensaje que se da al usuario/a para pedir el dato.
+     * @return Devuelve la letra introducida por consola.
+     */
+    public static char leerCaracter(String msg){
+        
+        char caracter = 0;
+        String cadena ;
+        boolean validador = false ;
+        Scanner entrada = new Scanner(System.in) ;
+        
+        do {
+            System.out.println(msg);
+            cadena = entrada.nextLine() ;
+            
+            if (cadena.length() == 1) 
+            {
+                caracter = cadena.charAt(0) ;
+                validador = true ;
+            }
+            else
+            {
+                System.out.println("\nTienes que introducir un único caracter.");
+            }
+            
+        } while (!validador);
+
+     
+        return caracter ;
     }
     
     
@@ -153,6 +188,7 @@ public class Utilidades {
     }
     
     
+    
     /**
      * Método que crea un objeto de tipo BufferedReader para leer un número entero
      * introducido por el/la usuario/a.
@@ -192,6 +228,57 @@ public class Utilidades {
     }
     
     
+    
+    /**
+     * Método que pide un caracter (comunmente una letra) usando internamente 
+     * la clase BufferedReader.
+     * 
+     * @param msg Mensaje al usuario/a.
+     * @return Devuelve el caracter tipo char.
+     */
+    public static char leerCaracterBuffer(String msg){
+    
+        char letra = 0 ;
+        String cadena ;
+        boolean validador = false ;
+        
+        BufferedReader dato = new BufferedReader(new InputStreamReader(System.in)) ;
+        
+        System.out.println(msg);
+        
+            do 
+            {
+               try
+               {
+                    cadena = dato.readLine() ;
+                
+                    if (cadena.length() == 1) 
+                    {
+                        letra = cadena.charAt(0) ;
+                        validador = true ;
+                    }
+                    else
+                    {
+                        System.out.println("\nTienes que introducir una sola letra:");
+                    }
+               }
+               catch (IOException e){
+                   System.out.println("\nEror de entrada de datos.");
+               }
+               catch (Exception e){
+                   System.out.println("\nHa ocurrido algún error.");
+               }
+                
+            } while (!validador);
+        
+        return letra ;
+    }
+    
+    public static void main(String[] args) {
+        char letra = leerCaracterBuffer("Introduce una letra: ") ;
+        
+        System.out.println("La letra seleccionada es: " + letra);
+    }
       
     /**
      * Método que crea un objeto de tipo BufferedReader para leer un número corto
