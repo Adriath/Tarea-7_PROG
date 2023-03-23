@@ -62,12 +62,35 @@ public class UtilidadesCadenas {
         return veces ;
     }
     
-    public static void main(String[] args) {
-        String cadena = Utilidades.leerString("Mete una cadena: ") ;
-        char letra = Utilidades.leerCaracter("Introduce una letra:") ;
+    
+    /**
+     * c) Reciba una cadena y diga si es palíndroma. (si tiene espacios se eliminan dentro del 
+     * método, antes de decidir si es palíndroma. Para eliminar espacios se utiliza el método 
+     * que tiene la clase String para ello.)
+     * 
+     * Método que evalúa una cadena pasada por parámetros para comprobar si es 
+     * palíndroma (se lee igual hacia delante que hacia atrás).
+     * 
+     * @param cadena La cadena tipo String a evaluar.
+     * @return Devuelve un valor booleano para indicar si la cadena es palíndroma (true) o no (false).
+     */
+    public static boolean compruebaPalidromo(String cadena){
         
-        int veces = cuantasVecesApareceLetra(cadena, letra) ;
+        boolean palidromo = false ;
         
-        System.out.printf("La letra %c aparece %d veces", letra, veces);
+        String cadenaSinEspacios = cadena.replaceAll("\\s", "") ;
+        
+        StringBuilder sbCadena = new StringBuilder(cadenaSinEspacios) ;
+        
+        cadena = sbCadena.reverse().toString() ;
+        
+        if (cadenaSinEspacios.equalsIgnoreCase(cadena)) 
+        {
+            palidromo = true ;
+        }
+        
+        return palidromo ;
     }
+   
+   
 }
