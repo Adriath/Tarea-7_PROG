@@ -1,6 +1,8 @@
 
 package ejercicio1.maestre;
 
+import utilidades.Utilidades;
+
 /**
  *
  * @author Adrián Arjona
@@ -38,6 +40,7 @@ public class UtilidadesCadenas {
      * 
      * Método que recibe una cadena y una letra por parámetros. Comprobará si la letra 
      * está contenida en la cadena y cuántas veces.
+     * Para evitar incomtabilidades haremos toda la operación con minúsculas.
      * 
      * @param cad Cadena tipo String en la que se va a buscar la letra.
      * @param letra La letra que queremos comprobar de tipo char.
@@ -46,12 +49,13 @@ public class UtilidadesCadenas {
     public static short cuantasVecesApareceLetra(String cad, char letra){
         
         short veces = 0 ;
+        letra = Character.toLowerCase(letra) ; // Pasamos la letra a minúscula
         
         for (int i = 0; i < cad.length(); i++) 
         {
-            if (cad.charAt(i) == letra)
+            if (cad.toLowerCase().charAt(i) == letra) // Si el caracter i (el que toque) de la cadena en minúsuclas es igual a la letra...
             {
-                veces++ ;
+                veces++ ; // ... aumenta el contador de veces en uno.
             }
         }
         
@@ -59,6 +63,11 @@ public class UtilidadesCadenas {
     }
     
     public static void main(String[] args) {
+        String cadena = Utilidades.leerString("Mete una cadena: ") ;
+        char letra = Utilidades.leerCaracter("Introduce una letra:") ;
         
+        int veces = cuantasVecesApareceLetra(cadena, letra) ;
+        
+        System.out.printf("La letra %c aparece %d veces", letra, veces);
     }
 }
