@@ -94,5 +94,22 @@ public class UtilidadesCadenas {
         return palidromo ;
     }
    
+    /**
+     * d) Reciba una cadena, y la devuelva girada, es decir al revés.
+     * 
+     * Método que recibe una cadena por parámetros y la devuelve girada.
+     * 
+     * @param cad Cadena de caracteres tipo String.
+     * @return Devuelve la cadena girada como un String.
+     */
+    public static String giraCadena(String cad){
+       
+       StringBuilder sbCadena = new StringBuilder(cad) ;
+       
+       cad = sbCadena.reverse().toString() ;
+       
+       return cad ;
+   }
    
+    
 }
