@@ -401,10 +401,11 @@ public class Utilidades {
     // -------------------- OPERACIONES ----------------------
     
     /**
-     * Método que calcula un número aleatorio entre 1 y 3.
+     * Método que calcula un número aleatorio comprendido entre 0 y el número 
+     * pasado por parámetro.
      * 
      * @param num. Tipo int. Es el número máximo hasta el que hará el cálculo.
-     * @return int numero. Devuelve 1, 2 ó 3.
+     * @return int numero. Devuelve un número aleatorio entre 0 y el número seleccionado.
      */
     public static int numeroAleatorio(int num){
         
