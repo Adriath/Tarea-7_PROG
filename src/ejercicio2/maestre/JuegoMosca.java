@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ejercicio2.maestre;
 
 import utilidades.Utilidades;
@@ -28,14 +25,9 @@ public class JuegoMosca {
         
         return new int[longitud] ;
     }
-
-    public int[] getArray() {
-        
-        return array;
-    }
-
     
-    public void posicionarMosca(int array[]){
+    
+    public void posicionarMosca(int array[]){ // MÉTODO QUE RESETEA EL ARRAY Y POSICIONA LA MOSCA (VALOR 1) EN UNA POSICIÓN ALEATORIA
         
         int posicionMosca ;
         
