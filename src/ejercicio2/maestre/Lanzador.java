@@ -20,6 +20,10 @@ public class Lanzador {
         int rondas = 0;
         int longitud = 0;
         int array[] = new int[longitud];
+        int posicionJugador = 0 ;
+        
+        boolean moscaEncontrada = false ;
+        
         
         System.out.println("¡Bienvenido/a al juego de la mosca!\n");
         System.out.println("\nINSTRUCCIONES:");

@@ -31,6 +31,9 @@ public class JuegoMosca {
 //        return new int[longitud] ;
 //    }
     
+     public int[] getArray() { // GETTER DE ARRAY
+        return array;
+    }
     
     public void posicionarMosca(int array[]){ // MÉTODO QUE RESETEA EL ARRAY Y POSICIONA LA MOSCA (VALOR 1) EN UNA POSICIÓN ALEATORIA
         
@@ -46,7 +49,7 @@ public class JuegoMosca {
         array[posicionMosca] = 1 ; // Luego le damos el valor 1 (donde está la mosca) a la posición aleatoria escogida anteriormente
     }
     
-    public void muestraArray(int array[]){ // MÉTODO QUE MUESTRA UN CASILLERO HORIZONTAL CON LAS POSICIONES (SÓLO PARA PRUEBAS)
+    public void muestraArray(int array[]){ // MÉTODO QUE MUESTRA UN CASILLERO HORIZONTAL CON LAS POSICIONES (SÓLO PARA PRUEBAS, tendrá que ser private luego)
         
         for (int i = 0; i < array.length; i++) 
         {
@@ -61,35 +64,67 @@ public class JuegoMosca {
         }
         
     }
+    
+    
+    public boolean jugar(int array[]){
+        
+        int contador = 1 ;
+        int posicionJugador = 0 ;
+        
+        boolean encontrado = false ;
+        
+        posicionarMosca(array);
+        
+        while ((contador < this.rondas) && (!encontrado)) // Si no se ha llegado a la última ronda y la mosca no ha sido encontrada
+            {
+                System.out.println("\nRONDA " + contador);
+                System.out.println("----------------------");
+            
+                posicionJugador = Utilidades.leerEntero("\n¿En qué posición está la mosca?") ;
+                
+                if ((posicionJugador < (this.array.length - 1)) && (posicionJugador > 0)) // Si la posición está dentro de los valores permitidos seigue la ejecución.
+                {
+                    if (array[posicionJugador] == 1) // Si la posición elegida por el jugador es 1, mosca encontrada.
+                        {
+                            encontrado = true ;
+                        }
+                    else // En caso de no ser encontrada pueden darse dos casos:
+                        {
+                           try
+                           {
+                               /* Si la posición elegida por el jugador es mayor que 0 y menor que la longitud del array 
+                               (para evitar salirnos del array) y, además, es igual a 1, la mosca estará en una posición adyascente
+                               */
+                                if (((posicionJugador < array.length) && (array[posicionJugador - 1] == 1)) || ((posicionJugador > 0) && (array[posicionJugador + 1]) == 1))
+                                {
+                                    posicionarMosca(array);
+                                    System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
+                                    contador++ ;
+                                }
+                                else
+                                {
+                                    System.out.println("\n¡Ups! Aquí no está. Sigue buscando.");
+                                    contador++ ;
+                                }
+                           }
+                           catch(IndexOutOfBoundsException e){
+                               
+                               System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
+                               contador++;
+                           }
+                           catch(Exception e){
+                               System.out.println(e.getMessage());
+                            }
+                        }
+                }
+                else
+                {
+                    System.out.println("\nEl número que has introducido no corresponde con el tamaño del casillero. Recuerda que puede ser " + this.longitud + " como máximo.");
+                }
+            }
+                
+        return encontrado ;
+        }
+    }
+    
 
-    public int[] getArray() {
-        return array;
-    }
-    
-    public static void main(String[] args) { // MAIN DE PRUEBAS
-        
-        JuegoMosca partida = new JuegoMosca();
-        
-        int array[] = partida.crearArray(8) ;
-        
-        partida.muestraArray(array);
-        
-        partida.posicionarMosca(array);
-        
-        System.out.println("\nOtra interacción: \n");
-        
-        partida.muestraArray(array);
-        
-        partida.posicionarMosca(array);
-        
-        System.out.println("\nOtra interacción: \n");
-        
-        partida.muestraArray(array);
-        
-        partida.posicionarMosca(array);
-        
-        
-        
-    }
-    
-}
