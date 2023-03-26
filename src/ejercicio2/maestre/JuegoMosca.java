@@ -16,11 +16,20 @@ public class JuegoMosca {
         UNIDAD 7: aplicación de las estructuras de almacenamiento.
     */
     
-      
-    public int[] crearArray(int longitud){ // MÉTODO QUE CREA UNA ARRAY DE LA LONGITUD DESEADA
+    private int array[] ;
+    private int rondas ;
+    private int longitud ;
+    
+    public JuegoMosca(int[] array, int rondas, int longitud){
         
-        return new int[longitud] ;
+        this.array = new int[longitud] ;
+        this.rondas = rondas ;
     }
+    
+//    public int[] crearArray(int longitud){ // MÉTODO QUE CREA UNA ARRAY DE LA LONGITUD DESEADA
+//        
+//        return new int[longitud] ;
+//    }
     
     
     public void posicionarMosca(int array[]){ // MÉTODO QUE RESETEA EL ARRAY Y POSICIONA LA MOSCA (VALOR 1) EN UNA POSICIÓN ALEATORIA
@@ -37,7 +46,7 @@ public class JuegoMosca {
         array[posicionMosca] = 1 ; // Luego le damos el valor 1 (donde está la mosca) a la posición aleatoria escogida anteriormente
     }
     
-    private void muestraArray(int array[]){ // MÉTODO QUE MUESTRA UN CASILLERO HORIZONTAL CON LAS POSICIONES (SÓLO PARA PRUEBAS)
+    public void muestraArray(int array[]){ // MÉTODO QUE MUESTRA UN CASILLERO HORIZONTAL CON LAS POSICIONES (SÓLO PARA PRUEBAS)
         
         for (int i = 0; i < array.length; i++) 
         {
@@ -51,6 +60,10 @@ public class JuegoMosca {
             }
         }
         
+    }
+
+    public int[] getArray() {
+        return array;
     }
     
     public static void main(String[] args) { // MAIN DE PRUEBAS
