@@ -16,10 +16,6 @@ public class JuegoMosca {
         UNIDAD 7: aplicación de las estructuras de almacenamiento.
     */
     
-    private int longitud ;
-    private int rondas ;
-    private int array[] ;
-    
       
     public int[] crearArray(int longitud){ // MÉTODO QUE CREA UNA ARRAY DE LA LONGITUD DESEADA
         
@@ -31,7 +27,7 @@ public class JuegoMosca {
         
         int posicionMosca ;
         
-        posicionMosca = Utilidades.numeroAleatorio(array.length) ; // Selecciona un núemro aleatorio para la posición de la mosca en el array
+        posicionMosca = Utilidades.numeroAleatorio((array.length - 1)) ; // Selecciona un núemro aleatorio para la posición de la mosca en el array
         
         for (int i = 0; i < array.length; i++) // Primero vamos a dar el valor 0 a todas las posiciones
         {
@@ -48,26 +44,50 @@ public class JuegoMosca {
         int array[] = partida.crearArray(8) ;
         
         for (int i = 0; i < array.length; i++) {
-            System.out.println("Posición " + (i+1) + " = " + array[i]);
+            if (i<(array.length - 1)) 
+            {
+                System.out.print("| " + array[i] + " ");
+            }
+            else
+            {
+                System.out.print("| " + array[i] + " |");
+            }
         }
         
         partida.posicionarMosca(array);
         
-        for (int i = 0; i < array.length; i++) {
-            System.out.println("Posición " + (i+1) + " = " + array[i]);
+        System.out.println("\nOtra interacción: \n");
+        
+         for (int i = 0; i < array.length; i++) {
+            if (i<(array.length - 1)) 
+            {
+                System.out.print("| " + array[i] + " ");
+            }
+            else
+            {
+                System.out.print("| " + array[i] + " |");
+            }
         }
         
-         partida.posicionarMosca(array);
+        partida.posicionarMosca(array);
         
-        for (int i = 0; i < array.length; i++) {
-            System.out.println("Posición " + (i+1) + " = " + array[i]);
+        System.out.println("\nOtra interacción: \n");
+        
+         for (int i = 0; i < array.length; i++) {
+            if (i<(array.length - 1)) 
+            {
+                System.out.print("| " + array[i] + " ");
+            }
+            else
+            {
+                System.out.print("| " + array[i] + " |");
+            }
         }
         
-         partida.posicionarMosca(array);
+        partida.posicionarMosca(array);
         
-        for (int i = 0; i < array.length; i++) {
-            System.out.println("Posición " + (i+1) + " = " + array[i]);
-        }
+        
+        
     }
     
 }
