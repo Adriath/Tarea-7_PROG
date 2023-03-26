@@ -37,52 +37,41 @@ public class JuegoMosca {
         array[posicionMosca] = 1 ; // Luego le damos el valor 1 (donde está la mosca) a la posición aleatoria escogida anteriormente
     }
     
+    private void muestraArray(int array[]){ // MÉTODO QUE MUESTRA UN CASILLERO HORIZONTAL CON LAS POSICIONES (SÓLO PARA PRUEBAS)
+        
+        for (int i = 0; i < array.length; i++) 
+        {
+            if (i<(array.length - 1)) // Si la posición no es la última no cerrará la celda
+            {
+                System.out.print("| " + array[i] + " ");
+            }
+            else // Si la posición es la última cerrará la celda
+            {
+                System.out.print("| " + array[i] + " |");
+            }
+        }
+        
+    }
+    
     public static void main(String[] args) { // MAIN DE PRUEBAS
         
         JuegoMosca partida = new JuegoMosca();
         
         int array[] = partida.crearArray(8) ;
         
-        for (int i = 0; i < array.length; i++) {
-            if (i<(array.length - 1)) 
-            {
-                System.out.print("| " + array[i] + " ");
-            }
-            else
-            {
-                System.out.print("| " + array[i] + " |");
-            }
-        }
+        partida.muestraArray(array);
         
         partida.posicionarMosca(array);
         
         System.out.println("\nOtra interacción: \n");
         
-         for (int i = 0; i < array.length; i++) {
-            if (i<(array.length - 1)) 
-            {
-                System.out.print("| " + array[i] + " ");
-            }
-            else
-            {
-                System.out.print("| " + array[i] + " |");
-            }
-        }
+        partida.muestraArray(array);
         
         partida.posicionarMosca(array);
         
         System.out.println("\nOtra interacción: \n");
         
-         for (int i = 0; i < array.length; i++) {
-            if (i<(array.length - 1)) 
-            {
-                System.out.print("| " + array[i] + " ");
-            }
-            else
-            {
-                System.out.print("| " + array[i] + " |");
-            }
-        }
+        partida.muestraArray(array);
         
         partida.posicionarMosca(array);
         

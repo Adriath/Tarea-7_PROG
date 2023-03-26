@@ -5,7 +5,7 @@ import utilidades.Utilidades;
 
 /**
  * Clase para operaciones con cadenas de la tarea 7 de programación.
- * Marzc 2023.
+ * Marzo 2023.
  * 
  * @author Adrián Arjona
  */
