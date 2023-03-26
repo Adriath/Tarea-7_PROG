@@ -49,7 +49,7 @@ public class JuegoMosca {
         array[posicionMosca] = 1 ; // Luego le damos el valor 1 (donde está la mosca) a la posición aleatoria escogida anteriormente
     }
     
-    public void muestraArray(int array[]){ // MÉTODO QUE MUESTRA UN CASILLERO HORIZONTAL CON LAS POSICIONES (SÓLO PARA PRUEBAS, tendrá que ser private luego)
+    private void muestraArray(int array[]){ // MÉTODO QUE MUESTRA UN CASILLERO HORIZONTAL CON LAS POSICIONES (SÓLO PARA PRUEBAS, tendrá que ser private luego)
         
         for (int i = 0; i < array.length; i++) 
         {
@@ -75,8 +75,10 @@ public class JuegoMosca {
         
         posicionarMosca(array);
         
-        while ((contador < this.rondas) && (!encontrado)) // Si no se ha llegado a la última ronda y la mosca no ha sido encontrada
+        while ((contador <= this.rondas) && (!encontrado)) // Si no se ha llegado a la última ronda y la mosca no ha sido encontrada
             {
+                muestraArray(array); // ---------------- ESTO ES PROVISIONAL, LO TENGO QUE QUITAR ------------------
+            
                 System.out.println("\nRONDA " + contador);
                 System.out.println("----------------------");
             
@@ -119,7 +121,7 @@ public class JuegoMosca {
                 }
                 else
                 {
-                    System.out.println("\nEl número que has introducido no corresponde con el tamaño del casillero. Recuerda que puede ser " + this.longitud + " como máximo.");
+                    System.out.println("\nEl número que has introducido no corresponde con el tamaño del casillero. Recuerda que puede ser " + array.length + " como máximo.");
                 }
             }
                 

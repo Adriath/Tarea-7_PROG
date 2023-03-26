@@ -36,7 +36,16 @@ public class Lanzador {
         JuegoMosca partida1 = new JuegoMosca(array, rondas, longitud) ;
         array = partida1.getArray() ;
         
-        partida1.muestraArray(array);
+        moscaEncontrada = partida1.jugar(array) ;
+        
+        if (moscaEncontrada) 
+        {
+            System.out.println("\n¡Enhorabuena, has encontrado la mosca!");
+        }
+        else
+        {
+            System.out.println("\nSe agotaron las rondas y no has encontrado la mosca, mala suerte.");
+        }
     }
     
 }
