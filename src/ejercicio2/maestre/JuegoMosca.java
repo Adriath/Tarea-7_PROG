@@ -84,9 +84,9 @@ public class JuegoMosca {
             
                 posicionJugador = Utilidades.leerEntero("\n¿En qué posición está la mosca?") ;
                 
-                if ((posicionJugador < (this.array.length - 1)) && (posicionJugador > 0)) // Si la posición está dentro de los valores permitidos seigue la ejecución.
+                if ((posicionJugador <= (this.array.length)) && (posicionJugador > 0)) // Si la posición está dentro de los valores permitidos sigue la ejecución.
                 {
-                    if (array[posicionJugador] == 1) // Si la posición elegida por el jugador es 1, mosca encontrada.
+                    if (array[posicionJugador - 1] == 1) // Si la posición elegida por el jugador es igual a 1, mosca encontrada.
                         {
                             encontrado = true ;
                         }
@@ -97,7 +97,7 @@ public class JuegoMosca {
                                /* Si la posición elegida por el jugador es mayor que 0 y menor que la longitud del array 
                                (para evitar salirnos del array) y, además, es igual a 1, la mosca estará en una posición adyascente
                                */
-                                if (((posicionJugador < array.length) && (array[posicionJugador - 1] == 1)) || ((posicionJugador > 0) && (array[posicionJugador + 1]) == 1))
+                                if (((posicionJugador <= (array.length - 1)) && (array[posicionJugador - 1] == 1)) || ((posicionJugador > 0) && (array[posicionJugador + 1]) == 1))
                                 {
                                     posicionarMosca(array);
                                     System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
@@ -111,6 +111,7 @@ public class JuegoMosca {
                            }
                            catch(IndexOutOfBoundsException e){
                                
+                               posicionarMosca(array);
                                System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
                                contador++;
                            }
