@@ -97,7 +97,7 @@ public class JuegoMosca {
                                /* Si la posición elegida por el jugador es mayor que 0 y menor que la longitud del array 
                                (para evitar salirnos del array) y, además, es igual a 1, la mosca estará en una posición adyascente
                                */
-                                if (((posicionJugador <= (array.length - 1)) && (array[posicionJugador - 1] == 1)) || ((posicionJugador > 0) && (array[posicionJugador + 1]) == 1))
+                                if (((posicionJugador <= (array.length - 1)) && (array[posicionJugador - 2] == 1)) || ((posicionJugador > 0) && (array[posicionJugador + 2]) == 1))
                                 {
                                     posicionarMosca(array);
                                     System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
