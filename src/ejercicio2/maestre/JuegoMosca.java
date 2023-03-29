@@ -92,31 +92,23 @@ public class JuegoMosca {
                         }
                     else // En caso de no ser encontrada pueden darse dos casos:
                         {
-                           try
-                           {
-                               /* Si la posición elegida por el jugador es mayor que 0 y menor que la longitud del array 
-                               (para evitar salirnos del array) y, además, es igual a 1, la mosca estará en una posición adyascente
-                               */
-                                if (((posicionJugador <= (array.length - 1)) && (array[posicionJugador - 2] == 1)) || ((posicionJugador > 0) && (array[posicionJugador + 2]) == 1))
-                                {
-                                    posicionarMosca(array);
-                                    System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
-                                    contador++ ;
-                                }
-                                else
-                                {
-                                    System.out.println("\n¡Ups! Aquí no está. Sigue buscando.");
-                                    contador++ ;
-                                }
-                           }
-                           catch(IndexOutOfBoundsException e){
-                               
-                               posicionarMosca(array);
-                               System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
-                               contador++;
-                           }
-                           catch(Exception e){
-                               System.out.println(e.getMessage());
+                        
+                            if (((posicionJugador - 1) == array[0]) && (array[1] == 1)) // Si la posición del jugador está a la izquierda del todo y su lado derecho es igual a 1
+                            {
+                                posicionarMosca(array);
+                                System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
+                                contador++ ;
+                            }
+                            else if (((posicionJugador) == array.length) && array[array.length - 2] == 1) // Si la posición del jugador está al final y su lado izquierdo es igual a 1
+                            {
+                                posicionarMosca(array);
+                                System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
+                                contador++ ;
+                            }
+                            else
+                            {
+                                System.out.println("\n¡Ups! Aquí no está. Sigue buscando.");
+                                contador++ ;
                             }
                         }
                 }

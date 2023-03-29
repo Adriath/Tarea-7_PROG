@@ -410,9 +410,9 @@ public class Utilidades {
     public static int numeroAleatorio(int num){
         
                 
-        int numero = (int)(Math.random()*num+1) ;
+        int numero = (int)(Math.random()* num + 1) ;
         
         return numero ;
     }
-    
+   
 }
