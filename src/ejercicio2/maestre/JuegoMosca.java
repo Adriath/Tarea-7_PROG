@@ -105,6 +105,17 @@ public class JuegoMosca {
                                 System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
                                 contador++ ;
                             }
+                            
+                            /*
+                            Si la posición del jugador no es un extremo y la posición izquierda o derecha es igual a 1
+                            */
+                            else if ( (0 < ( posicionJugador - 1 ) && ( posicionJugador - 1 ) < ( array.length - 1 ) ) && ( ( array[posicionJugador - 2] == 1) || ( array[posicionJugador] == 1) ) ) 
+                            {
+                                 posicionarMosca(array);
+                                System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
+                                contador++ ;
+                            }
+                            
                             else
                             {
                                 System.out.println("\n¡Ups! Aquí no está. Sigue buscando.");
