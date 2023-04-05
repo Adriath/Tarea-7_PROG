@@ -128,25 +128,4 @@ public class OperacionesArraysMultidimensionales{
         System.out.println(media);
     }
     
-    
-    public static void main(String[] args) {
-        
-        int longitudX = 0 ;
-        int longitudY = 0 ;
-        int array[][] = new int[longitudX][longitudY] ;
-        
-        
-        
-        OperacionesArraysMultidimensionales operacion1 = new OperacionesArraysMultidimensionales(array, 3, 3) ;
-        
-        array = operacion1.getArray() ;
-        
-        operacion1.darValores(array) ;
-        
-        operacion1.muestraArray(array);
-        
-        operacion1.calculaMaximosYMedia(array);
-        
-    }
-    
 }
