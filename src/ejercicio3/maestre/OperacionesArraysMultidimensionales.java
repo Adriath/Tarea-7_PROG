@@ -1,13 +1,14 @@
 
 package ejercicio3.maestre;
 
+import java.util.Arrays;
 import utilidades.Utilidades;
 
 /**
  *
  * @author Adrián Arjona
  */
-public class OperacionesArraysMultidimensionales {
+public class OperacionesArraysMultidimensionales{
     
     /* Francisco Adrián Arjona Bravo
         UNIDAD 7: aplicación de las estructuras de almacenamiento.
@@ -35,13 +36,13 @@ public class OperacionesArraysMultidimensionales {
 
             // ARRAY
     
-    public int[][] getArray() {
+    public int[][] getArray() { // DEVUELVE EL ARRAY
         return array;
     }
     
         // --- MÉTODOS PERSONALIZADOS ---
     
-    public int[][] darValores(int array[][]){
+    public int[][] darValores(int array[][]){ // MÉTODO QUE DA VALORES DEL 1 AL 9 A TODAS LAS POSICIONES DEL ARRAY
         
         for (int i = 0; i < array.length; i++) 
         {
@@ -54,26 +55,17 @@ public class OperacionesArraysMultidimensionales {
         return array ;
     }
     
-    private void muestraArray(int array[][]){ // MÉTODO QUE MUESTRA UN CASILLERO HORIZONTAL CON LAS POSICIONES (SÓLO PARA PRUEBAS, tendrá que ser private luego)
+    public void muestraArray(int array[][]){ // MÉTODO QUE MUESTRA UNA TABLA CON LOS VALORES DEL ARRAY
         
         for (int i = 0; i < array.length; i++) 
         {
-//            if (i<(array.length - 1)) // Si la posición no es la última no cerrará la celda
-//            {
-//                System.out.print("| " + array[i] + " ");
-//            }
-//            else // Si la posición es la última cerrará la celda
-//            {
-//                System.out.print("| " + array[i] + " |\n");
-//            }
-            
             for (int j = 0; j < array[i].length; j++) 
             {
-                if (j<(array.length - 1)) // Si la posición no es la última no cerrará la celda
+                if (j<(array[i].length - 1)) // Si la posición no es la última no cerrará la celda
                 {
                 System.out.print("| " + array[i][j] + " ");
                 }
-                else // Si la posición es la última cerrará la celda
+                else // Si la posición es la última cerrará la celda y da un salto de línea
                 {
                 System.out.print("| " + array[i][j] + " |\n");
                 }
@@ -81,6 +73,61 @@ public class OperacionesArraysMultidimensionales {
         }
         
     }
+    
+    public void calculaMaximosYMedia(int array[][]){ // MÉTODO QUE CALCULA LOS MÁXIMOS
+        
+        /*
+        Está ahora mimso como void. ¿Debería hacerlo de otro modo?
+        */
+        
+        // Vamos a calcular los valores máximos
+        
+        int suma = 0 ;
+        int media = 0 ;
+        
+        int maximos[] = new int[array.length] ; // Array que va a almacenar los valores máximos
+        
+        for (int i = 0; i < array.length; i++) 
+        {
+            int maximo = array[i][0] ; // Inicio variable maximo para la fila
+            
+            for (int j = 0; j < array[i].length; j++) 
+            {                
+                if (array[i][j] > maximo) // Si el valor es mayor al anterior ...
+                {
+                    maximo = array[i][j]; // ...lo almacena
+                }
+            }
+            
+            maximos[i] = maximo ; // Guardamos el valor en el array de los valores máximos
+        }
+        
+        // Mostramos los valores máximos
+        
+        System.out.println("\nMáximos");
+        System.out.println("-------");
+        
+        for (int i = 0; i < maximos.length; i++) 
+        {
+            System.out.println("   " + maximos[i]); // Imprime por pantalla 
+        }
+        
+        // Ahora vamos a calcular la media
+        
+        for (int i = 0; i < maximos.length; i++) 
+        {
+            suma += maximos[i] ;
+        }
+        
+        media = suma / maximos.length ;
+        
+        // Mostramos la media
+        
+        System.out.println("\nMedia");
+        System.out.println("-------");
+        System.out.println(media);
+    }
+    
     
     public static void main(String[] args) {
         
@@ -98,6 +145,7 @@ public class OperacionesArraysMultidimensionales {
         
         operacion1.muestraArray(array);
         
+        operacion1.calculaMaximosYMedia(array);
         
     }
     
