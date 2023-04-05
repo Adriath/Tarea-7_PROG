@@ -45,7 +45,7 @@ public class OperacionesArraysMultidimensionales {
         
         for (int i = 0; i < array.length; i++) 
         {
-            for (int j = 0; j < array[0].length; j++) 
+            for (int j = 0; j < array[i].length; j++) 
             {
                 array[i][j] = Utilidades.numeroAleatorio(9) ;
             }
@@ -67,15 +67,15 @@ public class OperacionesArraysMultidimensionales {
 //                System.out.print("| " + array[i] + " |\n");
 //            }
             
-            for (int j = 0; j < array[0].length; j++) 
+            for (int j = 0; j < array[i].length; j++) 
             {
                 if (j<(array.length - 1)) // Si la posición no es la última no cerrará la celda
                 {
-                System.out.print("| " + array[j][i] + " ");
+                System.out.print("| " + array[i][j] + " ");
                 }
                 else // Si la posición es la última cerrará la celda
                 {
-                System.out.print("| " + array[j][i] + " |\n");
+                System.out.print("| " + array[i][j] + " |\n");
                 }
             }
         }
