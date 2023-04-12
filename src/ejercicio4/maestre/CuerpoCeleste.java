@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @author Adrián Arjona
  * @version 1.1 Marzo 2023
  */
-public class CuerpoCeleste implements Serializable{
+public class CuerpoCeleste{
     
     /* Francisco Adrián Arjona Bravo
         UNIDAD 7: aplicación de las estructuras de almacenamiento.
