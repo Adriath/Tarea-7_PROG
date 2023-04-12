@@ -2,8 +2,10 @@
 package ejercicio4.maestre;
 
 /**
- *
+ * Excepción para la clase CuerpoCeleste. Reutilizada del ejercicio 6 para que 
+ * funcione correctamente al portarlo al ejercicio 7.
  * @author Adrián Arjona
+ * @version 1.1 Marzo 2023
  */
 public class ExcepcionCuerpoCeleste extends Exception {
     

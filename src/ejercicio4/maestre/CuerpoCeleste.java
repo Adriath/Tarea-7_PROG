@@ -26,14 +26,14 @@ public class CuerpoCeleste implements Serializable{
     
     // CONSTRUCTORES
     
-    public CuerpoCeleste() {
+    public CuerpoCeleste() { // CONSTRUCTOR POR DEFECTO
         codigoCuerpo = 0 ;
         nombre = "" ;
         tipoObjeto = "" ;
         diametro = 0 ;
     }
     
-    public CuerpoCeleste(short codigoCuerpo, String nombre, String tipoObjeto, int diametro) throws ExcepcionCuerpoCeleste{
+    public CuerpoCeleste(short codigoCuerpo, String nombre, String tipoObjeto, int diametro) throws ExcepcionCuerpoCeleste{ // CONSTRUCTOR CON PARÁMETROS
         
         this.setCodigoCuerpo(codigoCuerpo); // El código tiene que ser de tres dígitos como máximo.
         this.setNombre(nombre); // El nombre puede tener 15 caracteres como máximo
@@ -45,7 +45,7 @@ public class CuerpoCeleste implements Serializable{
     // GETTERS & SETTERS
     
 
-    public int getDiametro() {
+    public int getDiametro() { // GET DE DIÁMETRO
         return diametro;
     }
 
@@ -61,7 +61,7 @@ public class CuerpoCeleste implements Serializable{
         }
     }
 
-    public String getNombre() {
+    public String getNombre() { // GET DE NOMBRE
         return nombre;
     }
 
@@ -77,15 +77,15 @@ public class CuerpoCeleste implements Serializable{
         }
     }
 
-    public String getTipoObjeto() {
+    public String getTipoObjeto() { // GET DE TIPO OBJETO
         return tipoObjeto;
     }
 
-    public void setTipoObjeto(String tipoObjeto) {
+    public void setTipoObjeto(String tipoObjeto) { // SET DE TIPO OBJETO
         this.tipoObjeto = tipoObjeto;
     }
 
-    public short getCodigoCuerpo() {
+    public short getCodigoCuerpo() { // GET DE CÓDIGO CUERPO
         return codigoCuerpo;
     }
 
