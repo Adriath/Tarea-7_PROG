@@ -56,6 +56,17 @@ public class JuegoMosca {
         }
     }
     
+    public void resetearArray(int array[][]){ // MÉTODO QUE RESETEA EL ARRAY CUADNO SE FALLA PARA QUE SE PUEDAN DAR VALORES NUEVOS
+        
+        for (int i = 0; i < array.length; i++) 
+        {
+            for (int j = 0; j < array[i].length; j++) 
+            {
+                array[i][j] = 0 ;
+            }
+        }
+    }
+    
     private void muestraArray(int array[]){ // MÉTODO QUE MUESTRA UN CASILLERO HORIZONTAL CON LAS POSICIONES (SÓLO PARA PRUEBAS, tendrá que ser private luego)
         
         for (int i = 0; i < array.length; i++) 
