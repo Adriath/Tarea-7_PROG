@@ -83,11 +83,31 @@ public class JuegoMosca {
         
     }
     
+      private void muestraArray(int array[][]){ // SOBRECARGA DEL MÉTODO muestraArray() PARA LAS DOS DIMENSIONES
+        
+        for (int i = 0; i < array.length; i++) 
+        {
+            for (int j = 0; j < array[i].length; j++) 
+            {
+                if (j<(array[i].length - 1)) // Si la posición no es la última no cerrará la celda
+                {
+                System.out.print("| " + array[i][j] + " ");
+                }
+                else // Si la posición es la última cerrará la celda y da un salto de línea
+                {
+                System.out.print("| " + array[i][j] + " |\n");
+                }
+            }
+        }
+        
+    }
     
-    public boolean jugar(int array[]){
+    
+    public boolean jugar(int array[][]){
         
         int contador = 1 ;
-        int posicionJugador = 0 ;
+        int posicionJugadorX = 0 ;
+        int posicionJugadorY = 0 ;
         
         boolean encontrado = false ;
         
@@ -100,11 +120,13 @@ public class JuegoMosca {
                 System.out.println("\nRONDA " + contador);
                 System.out.println("----------------------");
             
-                posicionJugador = Utilidades.leerEntero("\n¿En qué posición está la mosca?") ;
+                System.out.println("\n¿En qué posición está la mosca?");
+                posicionJugadorX = Utilidades.leerEntero("\nDa el valor para las filas:") ;
+                posicionJugadorY = Utilidades.leerEntero("\nDa el valor para las columnas:") ;
                 
-                if ((posicionJugador <= (this.array.length)) && (posicionJugador > 0)) // Si la posición está dentro de los valores permitidos sigue la ejecución.
+                if ((posicionJugadorX <= (this.array.length)) && (posicionJugadorY <= this.array[0].length) && (posicionJugadorX > 0) && (posicionJugadorY > 0)) // Si la posición está dentro de los valores permitidos sigue la ejecución.
                 {
-                    if (array[posicionJugador - 1] == 1) // Si la posición elegida por el jugador es igual a 1, mosca encontrada.
+                    if (array[posicionJugadorX - 1][posicionJugadorY - 1] == 1) // Si la posición elegida por el jugador es igual a 1, mosca encontrada.
                         {
                             encontrado = true ;
                         }
@@ -113,12 +135,14 @@ public class JuegoMosca {
                         
                             if (((posicionJugador - 1) == array[0]) && (array[1] == 1)) // Si la posición del jugador está a la izquierda del todo y su lado derecho es igual a 1
                             {
+                                resetearArray(array);
                                 posicionarMosca(array);
                                 System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
                                 contador++ ;
                             }
                             else if (((posicionJugador) == array.length) && array[array.length - 2] == 1) // Si la posición del jugador está al final y su lado izquierdo es igual a 1
                             {
+                                resetearArray(array);
                                 posicionarMosca(array);
                                 System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
                                 contador++ ;
@@ -129,7 +153,8 @@ public class JuegoMosca {
                             */
                             else if ( (0 < ( posicionJugador - 1 ) && ( posicionJugador - 1 ) < ( array.length - 1 ) ) && ( ( array[posicionJugador - 2] == 1) || ( array[posicionJugador] == 1) ) ) 
                             {
-                                 posicionarMosca(array);
+                                resetearArray(array);
+                                posicionarMosca(array);
                                 System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
                                 contador++ ;
                             }
