@@ -41,10 +41,7 @@ public class JuegoMosca {
         
         posicionMosca = Utilidades.numeroAleatorio((array.length - 1)) ; // Selecciona un núemro aleatorio para la posición de la mosca en el array
         
-        for (int i = 0; i < array.length; i++) // Primero vamos a dar el valor 0 a todas las posiciones
-        {
-             array[i] = 0 ;
-        }
+      
         
         array[posicionMosca] = 1 ; // Luego le damos el valor 1 (donde está la mosca) a la posición aleatoria escogida anteriormente
     }

@@ -21,32 +21,39 @@ public class JuegoMosca {
     private int rondas ;
     private int longitudX ;
     private int longitudY ;
+    private int numeroMoscas ;
     
     
-    public JuegoMosca(int[][] array, int rondas, int longitudX, int longitudY){
+    public JuegoMosca(int[][] array, int rondas, int longitudX, int longitudY, int numeroMoscas){
         
         this.longitudX = longitudX ;
         this.longitudY = longitudY ;
         this.array = new int[longitudX][longitudY] ;
         this.rondas = rondas ;
+        this.numeroMoscas = numeroMoscas ;
     }
     
      public int[][] getArray() { // GETTER DE ARRAY
         return array;
     }
     
-    public void posicionarMosca(int array[]){ // MÉTODO QUE RESETEA EL ARRAY Y POSICIONA LA MOSCA (VALOR 1) EN UNA POSICIÓN ALEATORIA
+    public void posicionarMosca(int array[][]){ // MÉTODO QUE RESETEA EL ARRAY Y POSICIONA LA MOSCA (VALOR 1) EN UNA POSICIÓN ALEATORIA
         
-        int posicionMosca ;
+        int posicionMoscaX ;
+        int posicionMoscaY ;
+        int contador = 0 ;
         
-        posicionMosca = Utilidades.numeroAleatorio((array.length - 1)) ; // Selecciona un núemro aleatorio para la posición de la mosca en el array
-        
-        for (int i = 0; i < array.length; i++) // Primero vamos a dar el valor 0 a todas las posiciones
+        while(contador <= numeroMoscas) // Cuando el contador sea menor o igual que el número de moscas ejecuta el código
         {
-             array[i] = 0 ;
-        }
+            posicionMoscaX = Utilidades.numeroAleatorio((array.length - 1)) ; // Selecciona un número aleatorio para la posición de la mosca en la primera dimensaión del array
+            posicionMoscaY = Utilidades.numeroAleatorio((array[0].length - 1)) ; // Selecciona un número aleatorio para la posición de la mosca en la segunda dimensión del array
         
-        array[posicionMosca] = 1 ; // Luego le damos el valor 1 (donde está la mosca) a la posición aleatoria escogida anteriormente
+            if (array[posicionMoscaX][posicionMoscaY] != 1) // Si la posición aleatoria no es ya 1...
+            {
+                array[posicionMoscaX][posicionMoscaY] = 1 ; // ...dale el valor 1 entonces.
+                contador++ ; // De ser así suma el contador.
+            }
+        }
     }
     
     private void muestraArray(int array[]){ // MÉTODO QUE MUESTRA UN CASILLERO HORIZONTAL CON LAS POSICIONES (SÓLO PARA PRUEBAS, tendrá que ser private luego)
