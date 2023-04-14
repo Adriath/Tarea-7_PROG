@@ -28,7 +28,7 @@ public class Lanzador {
         System.out.println("¡Bienvenido/a al juego de la mosca!\n");
         System.out.println("\nINSTRUCCIONES:");
         System.out.println("-----------------");
-        System.out.println("Tendrás que adivinar la posición de la mosca en un número límite de intentos. ¡Vamos alla!\n");
+        System.out.println("Tendrás que adivinar la posición de la mosca en un número límite de intentos. ¡Vamos allá!\n");
         
         rondas = Utilidades.leerEntero("\n¿Cuántos rondas quieres jugar? Serán los intentos de los que dispongas.") ;
         longitud = Utilidades.leerEntero("\n¿Cuál es el número de casillas que tendrá la mosca para esconderse? Ten en cuenta que a mayor casillero, mayor dificultad.") ;

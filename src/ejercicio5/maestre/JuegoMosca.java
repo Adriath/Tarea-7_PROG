@@ -106,8 +106,8 @@ public class JuegoMosca {
     public boolean jugar(int array[][]){
         
         int contador = 1 ;
-        int posicionJugadorX = 0 ;
-        int posicionJugadorY = 0 ;
+        int posicionJugadorFilas = 0 ;
+        int posicionJugadorColumnas = 0 ;
         
         boolean encontrado = false ;
         
@@ -121,26 +121,29 @@ public class JuegoMosca {
                 System.out.println("----------------------");
             
                 System.out.println("\n¿En qué posición está la mosca?");
-                posicionJugadorX = Utilidades.leerEntero("\nDa el valor para las filas:") ;
-                posicionJugadorY = Utilidades.leerEntero("\nDa el valor para las columnas:") ;
+                posicionJugadorFilas = Utilidades.leerEntero("\nDa el valor para las filas:") ;
+                posicionJugadorColumnas = Utilidades.leerEntero("\nDa el valor para las columnas:") ;
                 
-                if ((posicionJugadorX <= (this.array.length)) && (posicionJugadorY <= this.array[0].length) && (posicionJugadorX > 0) && (posicionJugadorY > 0)) // Si la posición está dentro de los valores permitidos sigue la ejecución.
+                if ((posicionJugadorColumnas <= (this.array.length)) && (posicionJugadorFilas <= this.array[0].length) && (posicionJugadorX > 0) && (posicionJugadorY > 0)) // Si la posición está dentro de los valores permitidos sigue la ejecución.
                 {
-                    if (array[posicionJugadorX - 1][posicionJugadorY - 1] == 1) // Si la posición elegida por el jugador es igual a 1, mosca encontrada.
+                    if (array[posicionJugadorColumnas - 1][posicionJugadorFilas - 1] == 1) // Si la posición elegida por el jugador es igual a 1, mosca encontrada.
                         {
                             encontrado = true ;
                         }
                     else // En caso de no ser encontrada pueden darse dos casos:
                         {
+                            // CASO 1: la mosca está a una posición de distancia en el casillero
                         
-                            if (((posicionJugador - 1) == array[0]) && (array[1] == 1)) // Si la posición del jugador está a la izquierda del todo y su lado derecho es igual a 1
+                            if (((posicionJugador - 1) == array[0]) && (array[1] == 1))
+                            // Si la posición del jugador está a la izquierda del todo y su lado derecho es igual a 1
                             {
                                 resetearArray(array);
                                 posicionarMosca(array);
                                 System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
                                 contador++ ;
                             }
-                            else if (((posicionJugador) == array.length) && array[array.length - 2] == 1) // Si la posición del jugador está al final y su lado izquierdo es igual a 1
+                            else if (((posicionJugador) == array.length) && array[array.length - 2] == 1)
+                            // Si la posición del jugador está al final y su lado izquierdo es igual a 1
                             {
                                 resetearArray(array);
                                 posicionarMosca(array);
@@ -148,16 +151,16 @@ public class JuegoMosca {
                                 contador++ ;
                             }
                             
-                            /*
-                            Si la posición del jugador no es un extremo y la posición izquierda o derecha es igual a 1
-                            */
                             else if ( (0 < ( posicionJugador - 1 ) && ( posicionJugador - 1 ) < ( array.length - 1 ) ) && ( ( array[posicionJugador - 2] == 1) || ( array[posicionJugador] == 1) ) ) 
+                            // Si la posición del jugador no es un extremo y la posición izquierda o derecha es igual a 1
                             {
                                 resetearArray(array);
                                 posicionarMosca(array);
                                 System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
                                 contador++ ;
                             }
+                            
+                            // CASO 2: la mosca está a más de 1 posición de distancia.
                             
                             else
                             {
