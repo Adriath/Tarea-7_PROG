@@ -17,22 +17,21 @@ public class JuegoMosca {
         UNIDAD 7: aplicación de las estructuras de almacenamiento.
     */
     
-    private int array[] ;
+    private int array[][] ;
     private int rondas ;
-    private int longitud ;
+    private int longitudX ;
+    private int longitudY ;
     
-    public JuegoMosca(int[] array, int rondas, int longitud){
+    
+    public JuegoMosca(int[][] array, int rondas, int longitudX, int longitudY){
         
-        this.array = new int[longitud] ;
+        this.longitudX = longitudX ;
+        this.longitudY = longitudY ;
+        this.array = new int[longitudX][longitudY] ;
         this.rondas = rondas ;
     }
     
-//    public int[] crearArray(int longitud){ // MÉTODO QUE CREA UNA ARRAY DE LA LONGITUD DESEADA
-//        
-//        return new int[longitud] ;
-//    }
-    
-     public int[] getArray() { // GETTER DE ARRAY
+     public int[][] getArray() { // GETTER DE ARRAY
         return array;
     }
     
