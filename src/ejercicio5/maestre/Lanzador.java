@@ -18,9 +18,12 @@ public class Lanzador {
     public static void main(String[] args) {
         
         int rondas = 0;
-        int longitud = 0;
-        int array[] = new int[longitud];
-        int posicionJugador = 0 ;
+        int longitudFilas = 0;
+        int longitudColumnas = 0;
+        int array[][] = new int[longitudFilas][longitudColumnas];
+        int posicionJugadorFilas = 0 ;
+        int posicionJugadorColumnas = 0 ;
+        int numeroMoscas ;
         
         boolean moscaEncontrada = false ;
         
@@ -31,9 +34,13 @@ public class Lanzador {
         System.out.println("Tendrás que adivinar la posición de la mosca en un número límite de intentos. ¡Vamos allá!\n");
         
         rondas = Utilidades.leerEntero("\n¿Cuántos rondas quieres jugar? Serán los intentos de los que dispongas.") ;
-        longitud = Utilidades.leerEntero("\n¿Cuál es el número de casillas que tendrá la mosca para esconderse? Ten en cuenta que a mayor casillero, mayor dificultad.") ;
+        System.out.println("\n¿Cuál es el número de casillas que tendrá la mosca para esconderse? Ten en cuenta que a mayor casillero, mayor dificultad.");
+        longitudFilas = Utilidades.leerEntero("\nIntroduce el tamaño de las filas:") ;
+        longitudColumnas = Utilidades.leerEntero("\nIntroduce el tamaño de las columnas:") ;
         
-        JuegoMosca partida1 = new JuegoMosca(array, rondas, longitud) ;
+        numeroMoscas = Utilidades.leerEntero("\nY por último, ¿cuántas moscas quieres que aparezcan?") ;
+        
+        JuegoMosca partida1 = new JuegoMosca(array, rondas, longitudFilas, longitudFilas, numeroMoscas);
         array = partida1.getArray() ;
         
         moscaEncontrada = partida1.jugar(array) ;

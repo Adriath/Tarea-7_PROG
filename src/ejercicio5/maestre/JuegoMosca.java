@@ -124,7 +124,7 @@ public class JuegoMosca {
                 posicionJugadorFilas = Utilidades.leerEntero("\nDa el valor para las filas:") ;
                 posicionJugadorColumnas = Utilidades.leerEntero("\nDa el valor para las columnas:") ;
                 
-                if ((posicionJugadorColumnas <= (this.array.length)) && (posicionJugadorFilas <= this.array[0].length) && (posicionJugadorX > 0) && (posicionJugadorY > 0)) // Si la posición está dentro de los valores permitidos sigue la ejecución.
+                if ((posicionJugadorColumnas <= (this.array.length)) && (posicionJugadorFilas <= this.array[0].length) && (posicionJugadorFilas > 0) && (posicionJugadorColumnas > 0)) // Si la posición está dentro de los valores permitidos sigue la ejecución.
                 {
                     if (array[posicionJugadorColumnas - 1][posicionJugadorFilas - 1] == 1) // Si la posición elegida por el jugador es igual a 1, mosca encontrada.
                         {
