@@ -40,7 +40,7 @@ public class Lanzador {
         
         numeroMoscas = Utilidades.leerEntero("\nY por último, ¿cuántas moscas quieres que aparezcan?") ;
         
-        JuegoMosca partida1 = new JuegoMosca(array, rondas, longitudFilas, longitudFilas, numeroMoscas);
+        JuegoMosca partida1 = new JuegoMosca(array, rondas, longitudFilas, longitudColumnas, numeroMoscas);
         array = partida1.getArray() ;
         
         moscaEncontrada = partida1.jugar(array) ;
