@@ -149,21 +149,21 @@ public class JuegoMosca {
                             // CASO 1: la mosca está a una posición de distancia en el casillero
                         
                             if ((array[0][posicionJugadorColumnas - 1] == 0) && (array[1][posicionJugadorColumnas - 1]) == 1)
-                            // Si la posición del jugador está arriba del todo y la mosca está justo debajo
+                            // Si la posición del jugador está arriba del todo y la mosca está justo debajo.
                             {
                                 resetearArray(array);
                                 posicionarMosca(array);
                                 System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
                                 contador++ ;
                             }
-//                            else if (((posicionJugador) == array.length) && array[array.length - 2] == 1)
-//                            // Si la posición del jugador está al final y su lado izquierdo es igual a 1
-//                            {
-//                                resetearArray(array);
-//                                posicionarMosca(array);
-//                                System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
-//                                contador++ ;
-//                            }
+                            else if ( ( array[array.length - 1][posicionJugadorColumnas - 1] == 0 ) && ( array[array.length - 2][posicionJugadorColumnas - 1] == 1) )
+                            // Si la posición del jugador está abajo del todo y la mosca está justo arriba.
+                            {
+                                resetearArray(array);
+                                posicionarMosca(array);
+                                System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
+                                contador++ ;
+                            }
 //                            
 //                            else if ( (0 < ( posicionJugador - 1 ) && ( posicionJugador - 1 ) < ( array.length - 1 ) ) && ( ( array[posicionJugador - 2] == 1) || ( array[posicionJugador] == 1) ) ) 
 //                            // Si la posición del jugador no es un extremo y la posición izquierda o derecha es igual a 1
