@@ -117,7 +117,7 @@ public class JuegoMosca {
     }
 
     
-    public boolean jugar(int array[][]){
+    public boolean jugar(int array[][]){ // MÉTODO QUE EJECUTA EL JUEGO
         
         int contador = 1 ;
         int posicionJugadorFilas = 0 ;
@@ -148,7 +148,7 @@ public class JuegoMosca {
                         {
                             // CASO 1: la mosca está a una posición de distancia en el casillero
                         
-                            if ((array[0][posicionJugadorColumnas - 1] == 0) && (array[1][posicionJugadorColumnas - 1]) == 1)
+                            if ( ((posicionJugadorFilas - 1) == 0) && (array[1][posicionJugadorColumnas - 1]) == 1)
                             // Si la posición del jugador está ARRIBA del todo y la mosca está justo debajo.
                             {
                                 resetearArray(array);
@@ -156,44 +156,54 @@ public class JuegoMosca {
                                 System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
                                 contador++ ;
                             }
-                            else if ( ( array[array.length - 1][posicionJugadorColumnas - 1] == 0 ) && ( array[array.length - 2][posicionJugadorColumnas - 1] == 1) )
-                            // Si la posición del jugador está ABAJO del todo y la mosca está justo arriba.
-                            {
-                                resetearArray(array);
-                                posicionarMosca(array);
-                                System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
-                                contador++ ;
-                            }
                             
-                            else if ( ( array[posicionJugadorFilas - 1][0] == 0 ) && ( array[posicionJugadorFilas - 1][1] == 1) )
-                            // Si la posición del jugador está a la IZQUIERDA del todo y la mosca está justo a la derecha.
-                            {
-                                resetearArray(array);
-                                posicionarMosca(array);
-                                System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
-                                contador++ ;
-                            }
-                            
-                            else if ( ( array[posicionJugadorFilas - 1][array[0].length - 1] == 0 ) && ( array[posicionJugadorFilas - 1][array[0].length - 2] == 1) )
-                            // Si la posición del jugador está a la DERECHA del todo y la mosca está justo a la izquierda.
-                            {
-                                resetearArray(array);
-                                posicionarMosca(array);
-                                System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
-                                contador++ ;
-                            }
-//                            
-//                            else if ( (0 < ( posicionJugador - 1 ) && ( posicionJugador - 1 ) < ( array.length - 1 ) ) && ( ( array[posicionJugador - 2] == 1) || ( array[posicionJugador] == 1) ) ) 
-//                            // Si la posición del jugador no es un extremo y la posición izquierda o derecha es igual a 1
+//                            else if ( (array[array.length - 1][posicionJugadorColumnas - 1]) == 0) && ( array[array.length - 1][posicionJugadorColumnas - 1] == 1) )
+//                            // Si la posición del jugador está ABAJO del todo y la mosca está justo arriba.
 //                            {
 //                                resetearArray(array);
 //                                posicionarMosca(array);
 //                                System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
 //                                contador++ ;
 //                            }
+                            
+//                            else if ( ( array[posicionJugadorFilas - 1][0] == 0 ) && ( array[posicionJugadorFilas - 1][1] == 1) )
+//                            // Si la posición del jugador está a la IZQUIERDA del todo y la mosca está justo a la derecha.
+//                            {
+//                                resetearArray(array);
+//                                posicionarMosca(array);
+//                                System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
+//                                contador++ ;
+//                            }
+                            
+//                            else if ( ( array[posicionJugadorFilas - 1][array[0].length - 1] == 0 ) && ( array[posicionJugadorFilas - 1][array[0].length - 2] == 1) )
+//                            // Si la posición del jugador está a la DERECHA del todo y la mosca está justo a la izquierda.
+//                            {
+//                                resetearArray(array);
+//                                posicionarMosca(array);
+//                                System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
+//                                contador++ ;
+//                            }
+                            
+//                            else if ( (0 < ( posicionJugadorFilas - 1 )) && (0 < ( posicionJugadorColumnas - 1 )) && 
+//                                    (( posicionJugadorFilas - 1 ) < ( array.length - 1 ))  && ((posicionJugadorColumnas - 1) < (array[0].length - 1)) )
+//                            // Si la posición del jugador no es un extremo
+//                            {
+//                                if ( ((array[posicionJugadorFilas - 1][posicionJugadorColumnas - 2]) == 1) || // Si la mosca está a la IZQUIERDA...
+//                                        ((array[posicionJugadorFilas - 1][posicionJugadorColumnas]) == 1) || // ...o está a la DERECHA...
+//                                        ((array[posicionJugadorFilas - 2][posicionJugadorColumnas -1]) == 1) || // ...o está a ARRIBA...
+//                                        ((array[posicionJugadorFilas][posicionJugadorColumnas - 1]) == 1) ) // ...o si está ABAJO.
+//                                {
+//                                    // RESUMEN: para arriba, abajo, izquierda o derecha
+//                                    
+//                                    resetearArray(array);
+//                                    posicionarMosca(array);
+//                                    System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
+//                                    contador++ ;
+//                                }
+//                            }
 //                            
 //                            // CASO 2: la mosca está a más de 1 posición de distancia.
-//                            
+                            
                             else
                             {
                                 System.out.println("\n¡Ups! Aquí no está. Sigue buscando.");
