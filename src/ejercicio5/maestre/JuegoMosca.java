@@ -200,6 +200,19 @@ public class JuegoMosca {
                                     System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
                                     contador++ ;
                                 }
+                                
+                                else if ( ((array[posicionJugadorFilas - 2][posicionJugadorColumnas - 2]) == 1) || // Si la mosca está a ARRIBA/IZQUIERDA...
+                                        ((array[posicionJugadorFilas - 2][posicionJugadorColumnas]) == 1) || // ...o está a la ARRIBA/DERECHA...
+                                        ((array[posicionJugadorFilas][posicionJugadorColumnas -2]) == 1) || // ...o está a ABAJO/IZQUIERDA...
+                                        ((array[posicionJugadorFilas][posicionJugadorColumnas]) == 1) ) // ...o si está ABAJO/DERECHA.
+                                { // --------------- FUNCIONA -----------------
+                                    // RESUMEN: para las cuatro diagonales
+                                    
+                                    resetearArray(array);
+                                    posicionarMosca(array);
+                                    System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
+                                    contador++ ;
+                                }
                             }
                             
                             // CASO 2: la mosca está a más de 1 posición de distancia.
