@@ -148,8 +148,12 @@ public class JuegoMosca {
                         {
                             // CASO 1: la mosca está a una posición de distancia en el casillero
                         
-                            if ( ((posicionJugadorFilas - 1) == 0) && (array[1][posicionJugadorColumnas - 1]) == 1) // FUNCIONA
-                            // Si la posición del jugador está ARRIBA del todo y la mosca está justo debajo.
+                            if ( ((posicionJugadorFilas - 1) == 0) && (array[1][posicionJugadorColumnas - 1]) == 1 || // Si la mosca está justo debajo...
+                                    (array[0][posicionJugadorColumnas - 2]) == 1 || // ... o está a la izquierda...
+                                    (array[0][posicionJugadorColumnas]) == 1 || // ...o a la derecha 
+                                    (array[1][posicionJugadorColumnas - 2]) == 1 || // ...o en la diagonal abajo/izquierda...
+                                    (array[1][posicionJugadorColumnas]) == 1 ) // ...o en la diagonal abajo/derecha...
+                            // Si la posición del jugador está ARRIBA del todo
                             {
                                 resetearArray(array);
                                 posicionarMosca(array);
