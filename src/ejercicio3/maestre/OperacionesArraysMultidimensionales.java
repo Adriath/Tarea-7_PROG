@@ -5,8 +5,11 @@ import java.util.Arrays;
 import utilidades.Utilidades;
 
 /**
- *
+ * EJERCICIO 3
+ * Operaciones con arrays multidimensionales.
+ * 
  * @author Adrián Arjona
+ * @version 1.0 Marzo 2023
  */
 public class OperacionesArraysMultidimensionales{
     
@@ -25,6 +28,13 @@ public class OperacionesArraysMultidimensionales{
     
         // --- CONSTRUCTOR ---
     
+    /**
+     * Constructor con parámetros.
+     * 
+     * @param array Array de dos dimensiones y tipo entero.
+     * @param longitudX Longitud array eje X.
+     * @param longitudY Longitud array eje Y.
+     */
     public OperacionesArraysMultidimensionales (int[][] array, int longitudX, int longitudY){
         
         this.array = new int[longitudX][longitudY] ;
@@ -36,13 +46,24 @@ public class OperacionesArraysMultidimensionales{
 
             // ARRAY
     
-    public int[][] getArray() { // DEVUELVE EL ARRAY
+    /**
+     * Método que muestra el array.
+     * 
+     * @return Devuelve un array de dos dimensiones.
+     */
+    public int[][] getArray() {
         return array;
     }
     
         // --- MÉTODOS PERSONALIZADOS ---
     
-    public int[][] darValores(int array[][]){ // MÉTODO QUE DA VALORES DEL 1 AL 9 A TODAS LAS POSICIONES DEL ARRAY
+    /**
+     * Método que da valores del 1 al 9 a todas las posiciones del array.
+     * 
+     * @param array Array de dos dimensiones de tipo entero.
+     * @return Devuelve array de dos dimensiones.
+     */
+    public int[][] darValores(int array[][]){
         
         for (int i = 0; i < array.length; i++) 
         {
@@ -55,7 +76,14 @@ public class OperacionesArraysMultidimensionales{
         return array ;
     }
     
-    public void muestraArray(int array[][]){ // MÉTODO QUE MUESTRA UNA TABLA CON LOS VALORES DEL ARRAY
+    
+    
+    /**
+     * Método que muestra una tabla con los valores del array.
+     * 
+     * @param array Array de dos dimensiones de tipo entero.
+     */
+    public void muestraArray(int array[][]){
         
         for (int i = 0; i < array.length; i++) 
         {
@@ -74,7 +102,13 @@ public class OperacionesArraysMultidimensionales{
         
     }
     
-    public void calculaMaximosYMedia(int array[][]){ // MÉTODO QUE CALCULA LOS MÁXIMOS
+    
+    /**
+     * Método que calcula los máximos.
+     * 
+     * @param array Array de dos dimensiones de tipo entero.
+     */
+    public void calculaMaximosYMedia(int array[][]){
         
         /*
         Está ahora mimso como void. ¿Debería hacerlo de otro modo?

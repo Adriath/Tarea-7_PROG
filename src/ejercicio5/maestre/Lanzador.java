@@ -8,6 +8,7 @@ import utilidades.Utilidades;
  * para ejecutar la partida.
  * 
  * @author Adrián Arjona
+ * @version 2.0 Marzo 2023
  */
 public class Lanzador {
     
@@ -23,8 +24,10 @@ public class Lanzador {
         int array[][] = new int[longitudFilas][longitudColumnas];
         int posicionJugadorFilas = 0 ;
         int posicionJugadorColumnas = 0 ;
-        int numeroMoscas ;
+        int numMoscas = 0;
+        int numeroMoscas = 0;
         
+        boolean validador = false ;
         boolean moscaEncontrada = false ;
         
         
@@ -38,7 +41,23 @@ public class Lanzador {
         longitudFilas = Utilidades.leerEntero("\nIntroduce el tamaño de las filas:") ;
         longitudColumnas = Utilidades.leerEntero("\nIntroduce el tamaño de las columnas:") ;
         
-        numeroMoscas = Utilidades.leerEntero("\nY por último, ¿cuántas moscas quieres que aparezcan?") ;
+        do 
+        {
+            numMoscas = Utilidades.leerEntero("\nY por último, ¿cuántas moscas quieres que aparezcan?") ;
+            
+            if (numMoscas > 0 && ( numMoscas <= ((longitudFilas * longitudColumnas) - 1)) ) 
+                // Si el número de moscas es mayor a cero y no deja al menos un hueco libre en la cuadrícula...
+            {
+                numeroMoscas = numMoscas ; // ...guarda la variable como válida.
+                validador = true ;
+            }
+            else // ... si no se cumple avisará con un mensaje y volverá a ejecutarse
+            {
+                System.out.println("\nEl número de moscas no puede ser igual o inferior a 0 ni rellenar el casillero completo.");
+            }
+            
+        } while (!validador);
+        
         
         JuegoMosca partida1 = new JuegoMosca(array, rondas, longitudFilas, longitudColumnas, numeroMoscas);
         array = partida1.getArray() ;

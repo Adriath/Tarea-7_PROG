@@ -17,6 +17,15 @@ public class JuegoMosca {
         UNIDAD 7: aplicación de las estructuras de almacenamiento.
     */
     
+    /* NOTA:
+    
+        Dentro del método jugar() hay una línea que hace referencia a un método 
+        privado para mostrar la cuadrícula, haciendo más fácil la tarea de realizar 
+        pruebas. Está señalado en un comentario.
+        Si no se desea ver la cuadrícula basta con comentarlo. De momento lo he 
+        dejado sin comentar para facilitar la corrección.
+    */
+    
     private int array[][] ;
     private int rondas ;
     private int longitudColumnas ;
@@ -24,6 +33,15 @@ public class JuegoMosca {
     private int numeroMoscas ;
     
     
+    /**
+     * Constructor con parámetros de la clase JuegoMosca.
+     * 
+     * @param array Array bidimensional de tipo entero.
+     * @param rondas Número de rondas que tendrá la partida.
+     * @param longitudFilas Longitud de las filas del array.
+     * @param longitudColumnas Longitud de las columnas de array.
+     * @param numeroMoscas Número de moscas a encontrar.
+     */
     public JuegoMosca(int[][] array, int rondas, int longitudFilas, int longitudColumnas, int numeroMoscas){
         
         this.longitudColumnas = longitudColumnas ;
@@ -33,11 +51,22 @@ public class JuegoMosca {
         this.numeroMoscas = numeroMoscas ;
     }
     
-     public int[][] getArray() { // GETTER DE ARRAY
+    /**
+     * Método que devuelve el array de dos dimensiones.
+     * 
+     * @return Devuelve un array de dos dimensiones.
+     */
+    public int[][] getArray() {
         return array;
     }
     
-    public void posicionarMosca(int array[][]){ // MÉTODO QUE RESETEA EL ARRAY Y POSICIONA LA MOSCA (VALOR 1) EN UNA POSICIÓN ALEATORIA
+    
+    /**
+     * Método que resetea el array y posiciona la mosca (valor 1) en una posición aleatoria.
+     * 
+     * @param array Array de dos dimensiones de tipo entero.
+     */
+    public void posicionarMosca(int array[][]){
         
         int posicionMoscaFilas ;
         int posicionMoscaColumnas ;
@@ -45,8 +74,8 @@ public class JuegoMosca {
         
         while(contador < numeroMoscas) // Cuando el contador sea menor que el número de moscas ejecuta el código
         {
-            posicionMoscaFilas = Utilidades.numeroAleatorio((array.length - 1)) ; // Selecciona un número aleatorio para la posición de la mosca en la primera dimensaión del array
-            posicionMoscaColumnas = Utilidades.numeroAleatorio((array[0].length - 1)) ; // Selecciona un número aleatorio para la posición de la mosca en la segunda dimensión del array
+            posicionMoscaFilas = Utilidades.numeroAleatorioDesdeoCero(array.length) ; // Selecciona un número aleatorio para la posición de la mosca en la primera dimensaión del array
+            posicionMoscaColumnas = Utilidades.numeroAleatorioDesdeoCero(array[0].length) ; // Selecciona un número aleatorio para la posición de la mosca en la segunda dimensión del array
         
             if (array[posicionMoscaFilas][posicionMoscaColumnas] != 1) // Si la posición aleatoria no es ya 1...
             {
@@ -56,7 +85,13 @@ public class JuegoMosca {
         }
     }
     
-    public void resetearArray(int array[][]){ // MÉTODO QUE RESETEA EL ARRAY CUADNO SE FALLA PARA QUE SE PUEDAN DAR VALORES NUEVOS
+    
+    /**
+     * Método que resetea el array cuando se falla para que se puedan dar valores nuevos.
+     * 
+     * @param array Array de dos dimensiones de tipo entero.
+     */
+    public void resetearArray(int array[][]){
         
         for (int i = 0; i < array.length; i++) 
         {
@@ -67,7 +102,15 @@ public class JuegoMosca {
         }
     }
     
-    private void muestraArray(int array[]){ // MÉTODO QUE MUESTRA UN CASILLERO HORIZONTAL CON LAS POSICIONES (SÓLO PARA PRUEBAS, tendrá que ser private luego)
+    
+    
+    /**
+     * Método privado que muestra un casillero horizontal con las posiciones 
+     * usado para pruebas. Comentar si se va a jugar una partida como usuario.
+     * 
+     * @param array Array de dos dimensiones de tipo entero.
+     */
+    private void muestraArray(int array[]){
         
         for (int i = 0; i < array.length; i++) 
         {
@@ -83,7 +126,13 @@ public class JuegoMosca {
         
     }
     
-    private void muestraArray(int array[][]){ // SOBRECARGA DEL MÉTODO muestraArray() PARA LAS DOS DIMENSIONES
+    
+    /**
+     * Sobrecarga del método muestraArray() para las dos dimensiones.
+     * 
+     * @param array Array de dos dimensiones de tipo entero.
+     */
+    private void muestraArray(int array[][]){
         
         for (int i = 0; i < array.length; i++) 
         {
@@ -101,22 +150,14 @@ public class JuegoMosca {
         }
         
     }
-    
-    private void muestraArrayIrregular(int[][] array) { // MÉTODO PARA PRUEBAS
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                if (j == 0) {
-                    System.out.print("| ");
-                }
-                System.out.print(array[i][j] + " ");
-                if (j == array[i].length - 1) {
-                    System.out.print("|\n");
-                }
-            }
-        }
-    }
 
     
+    /**
+     * Método que ejecuta el juego.
+     * 
+     * @param array Array de dos dimensiones de tipo entero.
+     * @return Devuelve true si la mosca ha sido encontrada y false si no.
+     */
     public boolean jugar(int array[][]){ // MÉTODO QUE EJECUTA EL JUEGO
         
         int contador = 1 ;
@@ -129,7 +170,7 @@ public class JuegoMosca {
         
         while ((contador <= this.rondas) && (!encontrado)) // Si no se ha llegado a la última ronda y la mosca no ha sido encontrada
             {
-                muestraArray(array); // ---------------- ESTO ES PROVISIONAL, LO TENGO QUE QUITAR ------------------
+                muestraArray(array); // ---------------- COMENTAR SI NO SE QUIERE VER LA CUADRÍCULA ------------------
             
                 System.out.println("\nRONDA " + contador);
                 System.out.println("----------------------");
@@ -200,7 +241,7 @@ public class JuegoMosca {
                                     System.out.println("\n¡Vaya! La mosca ha revoloteado y ha cambiado de posición.");
                                     contador++ ;
                                 }
-//                                
+                                
                                 else if ( ((array[posicionJugadorFilas - 2][posicionJugadorColumnas - 2]) == 1) || // Si la mosca está a ARRIBA/IZQUIERDA...
                                         ((array[posicionJugadorFilas - 2][posicionJugadorColumnas]) == 1) || // ...o está a la ARRIBA/DERECHA...
                                         ((array[posicionJugadorFilas][posicionJugadorColumnas -2]) == 1) || // ...o está a ABAJO/IZQUIERDA...

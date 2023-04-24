@@ -401,11 +401,11 @@ public class Utilidades {
     // -------------------- OPERACIONES ----------------------
     
     /**
-     * Método que calcula un número aleatorio comprendido entre 0 y el número 
+     * Método que calcula un número aleatorio comprendido entre 1 y el número 
      * pasado por parámetro.
      * 
      * @param num. Tipo int. Es el número máximo hasta el que hará el cálculo.
-     * @return int numero. Devuelve un número aleatorio entre 0 y el número seleccionado.
+     * @return int numero. Devuelve un número aleatorio entre 1 y el número seleccionado.
      */
     public static int numeroAleatorio(int num){
         
@@ -414,5 +414,22 @@ public class Utilidades {
         
         return numero ;
     }
-   
+    
+     /**
+     * Método que calcula un número aleatorio comprendido entre 1 y el número 
+     * pasado por parámetro. Pensado para posiciones de arrays.
+     * 
+     * @param num. Tipo int. Es el número máximo hasta el que hará el cálculo.
+     * @return int numero. Devuelve un número aleatorio entre 1 y el número seleccionado.
+     */
+    public static int numeroAleatorioDesdeoCero(int num){
+        
+                
+        int numero = (int)(Math.random()* num) ;
+        
+        return numero ;
+    }
+    public static void main(String[] args) {
+        System.out.println(numeroAleatorioDesdeoCero(3));
+    }
 }
