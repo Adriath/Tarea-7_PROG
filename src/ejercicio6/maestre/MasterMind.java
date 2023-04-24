@@ -15,4 +15,25 @@ public class MasterMind {
     */
     
     
+    // ---------------- DECLARACIÓN DE VARIABLES -----------------
+    
+    private int array[] ;
+    
+    // ------------------ MÉTODOS -----------------------------
+    
+        // CONSTRUCTOR
+    
+        public MasterMind(int[] array){ // CONSTRUCTOR CON PARÁMETROS
+        
+            this.array = array ;
+        }
+    
+        // GETTERS & SETTERS
+
+        public int[] getArray() { // GETTER DE ARRAY
+            
+            return array;
+        }
+    
+        
 }

@@ -1,8 +1,6 @@
 
 package ejercicio6.maestre;
 
-import utilidades.Utilidades;
-
 /**
  * Lanzador del programa MasterMind.
  * 
@@ -20,7 +18,7 @@ public class Lanzador {
      */
     public static void main(String[] args) {
         
-        System.out.println(Utilidades.coloreaCadena("Hola", Utilidades.amarillo));
+        
     }
     
 }
