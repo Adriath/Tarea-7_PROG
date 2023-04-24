@@ -429,7 +429,34 @@ public class Utilidades {
         
         return numero ;
     }
-    public static void main(String[] args) {
-        System.out.println(numeroAleatorioDesdeoCero(3));
+    
+    
+    // ------------------ OTROS -------------------------
+    
+    public static String negro = "\033[30m" ; 
+    public static String rojo = "\033[31m" ; 
+    public static String verde = "\033[32m" ; 
+    public static String amarillo = "\033[33m" ; 
+    public static String azul = "\033[34m" ; 
+    public static String magenta = "\033[35m" ; 
+    public static String cyan = "\033[36m" ; 
+    public static String blanco = "\033[37m" ;
+    public static String reset = "\u001B[0m" ;
+
+    
+    /**
+     * Colorea la cadena de texto introducida del color deseado (tiene que estar 
+     * registrado en la clase.
+     * 
+     * @param cadena Cadenad de caracteres que queresmos colorear.
+     * @param color Color que queremos aplicar.
+     * @return Devuelve la cadena coloreada.
+     */
+    public static String coloreaCadena(String cadena, String color){
+        
+        String cadenaColoreada = color + cadena ;
+        
+        return cadenaColoreada ;
     }
+    
 }
