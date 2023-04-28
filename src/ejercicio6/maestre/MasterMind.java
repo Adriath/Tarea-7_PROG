@@ -88,6 +88,7 @@ public class MasterMind {
         
         public static void main(String[] args) { // -------- MAIN DE PRUEBAS --------------
         int array[] ;
+        boolean encontrado = false ;
         
         MasterMind partida1 = new MasterMind() ;
         
@@ -98,5 +99,25 @@ public class MasterMind {
             for (int i : array) {
                 System.out.print(i + " ");
             }
+            
+        int arrayUsuario[] = partida1.getArrayUsuario() ;
+        
+            System.out.println("Longitud arrayUsuario: ");
+            System.out.println(arrayUsuario.length);
+        
+            
+                
+                for (int i = 0; i < arrayUsuario.length; i++) {
+                    
+                    arrayUsuario[i] = Utilidades.leerEnteroConLimiteDeDigitos("\nPosición " + (i+1), 1) ;
+                    
+                }
+                
+                String pista[] = new String[3] ;
+        pista = partida1.comparaArrays(array, arrayUsuario) ;
+        
+                for (String i : pista) {
+                    System.out.print(i + " ");
+                }
     }
 }
