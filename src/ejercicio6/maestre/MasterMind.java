@@ -41,18 +41,22 @@ public class MasterMind {
         
         public int[] getArrayUsuario() { // GETTER DE ARRAY USUARIO
             
-            return array;
+            return arrayUsuario;
         }
     
         
         // ------ PERSONALIZADOS -------
         
-        public void generaValoresAleatorios(int[] array){
+        public int[] generaValoresAleatorios(int[] array){
             //MÉTODO QUE GENERA TRES NÚMEROS ALEATORIOS Y LOS GUARDA EN EL ARRAY
             
             array[0] = Utilidades.numeroAleatorioDesdeoCero(10) ; // Genera número del 0 al 9 y lo guarda en la primera posición.
             array[1] = Utilidades.numeroAleatorioDesdeoCero(10) ; // Genera número del 0 al 9 y lo guarda en la segunda posición.
             array[2] = Utilidades.numeroAleatorioDesdeoCero(10) ; // Genera número del 0 al 9 y lo guarda en la tercera posición.
+            
+            this.array = array ;
+            
+            return array ;
         }
         
         public String[] comparaArrays(int[] array, int[] arrayUsuario){
@@ -64,7 +68,7 @@ public class MasterMind {
                 
                 for (int j = 0; j < arrayUsuario.length; j++) // Recorre arrayUsuario
                 {
-                    if (array[i] == arrayUsuario[i]) // Si el valor del usuario es el que viene en el array...
+                    if (array[i] == arrayUsuario[j]) // Si el valor del usuario es el que viene en el array...
                     {
                         if (i == j) // ...y las posiciones coinciden...
                         {
@@ -76,7 +80,11 @@ public class MasterMind {
                             pista[i] = Utilidades.coloreaCadena("a", Utilidades.amarillo) ; // ...da una pista de color amarillo.
                         }
                     }
-                    else // Si no hay coincidencia en los valores...
+                    else if(pista[i] == null) // Si no hay coincidencia en los valores...
+                        /*
+                        Originalmente era un else a secas pero la IA lo sugiere 
+                        así. No termino de entender el sentido aún.
+                        */
                     {
                         pista[i] = Utilidades.coloreaCadena("r", Utilidades.rojo) ; // ...da una pista de color rojo.
                     }
@@ -88,19 +96,23 @@ public class MasterMind {
         
         public static void main(String[] args) { // -------- MAIN DE PRUEBAS --------------
         int array[] ;
+        int arrayUsuario[] ;
         boolean encontrado = false ;
         
         MasterMind partida1 = new MasterMind() ;
         
         array = partida1.getArray() ;
         
-        partida1.generaValoresAleatorios(array);
+        
+        array = partida1.generaValoresAleatorios(array);
         
             for (int i : array) {
                 System.out.print(i + " ");
             }
             
-        int arrayUsuario[] = partida1.getArrayUsuario() ;
+        
+        
+        arrayUsuario = partida1.getArrayUsuario() ;
         
             System.out.println("Longitud arrayUsuario: ");
             System.out.println(arrayUsuario.length);
