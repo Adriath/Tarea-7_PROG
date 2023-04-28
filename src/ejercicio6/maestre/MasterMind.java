@@ -54,7 +54,39 @@ public class MasterMind {
             array[1] = Utilidades.numeroAleatorioDesdeoCero(10) ; // Genera número del 0 al 9 y lo guarda en la segunda posición.
             array[2] = Utilidades.numeroAleatorioDesdeoCero(10) ; // Genera número del 0 al 9 y lo guarda en la tercera posición.
         }
-        public static void main(String[] args) {
+        
+        public String[] comparaArrays(int[] array, int[] arrayUsuario){
+            // MÉTODO QUE COMPARA LOS ARRAYS
+            
+            String[] pista = new String[3] ;
+            
+            for (int i = 0; i < array.length; i++){ // Recorre array
+                
+                for (int j = 0; j < arrayUsuario.length; j++) // Recorre arrayUsuario
+                {
+                    if (array[i] == arrayUsuario[i]) // Si el valor del usuario es el que viene en el array...
+                    {
+                        if (i == j) // ...y las posiciones coinciden...
+                        {
+                            pista[i] = Utilidades.coloreaCadena("v", Utilidades.verde) ; // ...da una pista de color verde.
+                        }
+                        
+                        else // Si las posiciones no coinciden...
+                        {
+                            pista[i] = Utilidades.coloreaCadena("a", Utilidades.amarillo) ; // ...da una pista de color amarillo.
+                        }
+                    }
+                    else // Si no hay coincidencia en los valores...
+                    {
+                        pista[i] = Utilidades.coloreaCadena("r", Utilidades.rojo) ; // ...da una pista de color rojo.
+                    }
+                }
+            }
+            
+            return pista ;
+        }
+        
+        public static void main(String[] args) { // -------- MAIN DE PRUEBAS --------------
         int array[] ;
         
         MasterMind partida1 = new MasterMind() ;
@@ -64,7 +96,7 @@ public class MasterMind {
         partida1.generaValoresAleatorios(array);
         
             for (int i : array) {
-                System.out.println(i);
+                System.out.print(i + " ");
             }
     }
 }

@@ -82,6 +82,55 @@ public class Utilidades {
         return entero ;
     }
     
+       /**
+     * Método que pide al usuario un número entero pudiendo personalizar el 
+     * mensaje de petición y limitando el número de dígitos.
+     * 
+     * @param msg String. Mensaje con el que se pide el número al usuario.
+     * @param limite int. Indica el número de dígitos permitidos.
+     * @return int entero. Devuelve el número introducido por el usuario.
+     */
+    public static int leerEnteroConLimiteDeDigitos(String msg, int limite){
+        
+        int entero = 0;
+        boolean validador = false ;
+        Scanner entrada = new Scanner(System.in) ;
+        
+        do {
+            System.out.println(msg);
+            String mensaje = entrada.nextLine() ;
+           
+            if (mensaje.length() <= limite) // Si la longitud de la cadena es menor o igual que el límite...
+            {
+                try // ...ejecuta el código.
+                {
+                    entero = Integer.parseInt(mensaje) ;
+                    validador = true ;
+                }
+                catch (InputMismatchException e) {
+
+                    System.out.println("\nNo has introducido un número entero.");
+                }
+                catch (NumberFormatException e) {
+
+                    System.out.println("\nNo has introducido un número entero.");
+                }
+                catch (Exception e) {
+
+                    System.out.println("\nOcurrió algún error.");
+                }
+            }
+            else // Si es mayor al límite muestra un mensaje por pantalla.
+            {
+                System.out.println("\nEl número debe tener " + limite + " dígito/s como máximo.");
+            }
+            
+        } while (!validador);
+
+     
+        return entero ;
+    }
+    
     
     /**
      * Método que sirve para leer un caracter pedido al usuario/a.
