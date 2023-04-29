@@ -62,36 +62,9 @@ public class MasterMind {
         public String[] comparaArrays(int[] array, int[] arrayUsuario){
             // MÉTODO QUE COMPARA LOS ARRAYS
             
-            String[] pista = new String[3] ;
+          
             
-            for (int i = 0; i < array.length; i++){ // Recorre array
-                
-                for (int j = 0; j < arrayUsuario.length; j++) // Recorre arrayUsuario
-                {
-                    if (array[i] == arrayUsuario[j]) // Si el valor del usuario es el que viene en el array...
-                    {
-                        if (i == j) // ...y las posiciones coinciden...
-                        {
-                            pista[i] = Utilidades.coloreaCadena("v", Utilidades.verde) ; // ...da una pista de color verde.
-                        }
-                        
-                        else // Si las posiciones no coinciden...
-                        {
-                            pista[i] = Utilidades.coloreaCadena("a", Utilidades.amarillo) ; // ...da una pista de color amarillo.
-                        }
-                    }
-                    else if(pista[i] == null) // Si no hay coincidencia en los valores...
-                        /*
-                        Originalmente era un else a secas pero la IA lo sugiere 
-                        así. No termino de entender el sentido aún.
-                        */
-                    {
-                        pista[i] = Utilidades.coloreaCadena("r", Utilidades.rojo) ; // ...da una pista de color rojo.
-                    }
-                }
-            }
-            
-            return pista ;
+            return  ;
         }
         
         public static void main(String[] args) { // -------- MAIN DE PRUEBAS --------------
