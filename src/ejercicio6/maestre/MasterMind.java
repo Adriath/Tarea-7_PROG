@@ -62,6 +62,24 @@ public class MasterMind {
             return array ;
         }
         
+        public int[] pideValoresAUsuario()
+        {
+            String valores ;
+            
+            int[] arrayUsuario = new int[3];
+            String[] valoresExtraidos = new String[3] ;
+            
+            valores = String.valueOf(Utilidades.leerEnteroConLimiteDeDigitos("\nEscribe la combinación de 3 dígitos: ", 3)) ;
+            valoresExtraidos = valores.split("") ;
+            
+            for (int i = 0; i < this.arrayUsuario.length; i++) 
+            {
+                arrayUsuario[i] = Integer.parseInt(valoresExtraidos[i]) ;
+            }
+            
+            return arrayUsuario ;
+        }
+        
         public void comparaArrays(int[] array, int[] arrayUsuario){
             // MÉTODO QUE COMPARA LOS ARRAYS
             
@@ -97,23 +115,13 @@ public class MasterMind {
                 System.out.print(i + " ");
             }
             
+        arrayUsuario = partida1.pideValoresAUsuario() ;
         
-        
-        arrayUsuario = partida1.getArrayUsuario() ;
-        
-            System.out.println("Longitud arrayUsuario: ");
-            System.out.println(arrayUsuario.length);
-        
-            
+            for (int i : arrayUsuario) {
                 
-                for (int i = 0; i < arrayUsuario.length; i++) {
-                    
-                    arrayUsuario[i] = Utilidades.leerEnteroConLimiteDeDigitos("\nPosición " + (i+1), 1) ;
-                    
-                }
-                
-                
-        partida1.comparaArrays(array, arrayUsuario) ;
+                System.out.println("Los valores son: ");
+                System.out.println(i);
+            }
         
     }
 }
