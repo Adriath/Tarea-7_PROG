@@ -50,7 +50,7 @@ public class MasterMind {
         
         // ------ PERSONALIZADOS -------
         
-        public int[] generaValoresAleatorios(int[] array){
+        public void generaValoresAleatorios(int[] array){
             //MÉTODO QUE GENERA TRES NÚMEROS ALEATORIOS Y LOS GUARDA EN EL ARRAY
             
             array[0] = Utilidades.numeroAleatorioDesdeoCero(10) ; // Genera número del 0 al 9 y lo guarda en la primera posición.
@@ -58,8 +58,6 @@ public class MasterMind {
             array[2] = Utilidades.numeroAleatorioDesdeoCero(10) ; // Genera número del 0 al 9 y lo guarda en la tercera posición.
             
             this.array = array ;
-            
-            return array ;
         }
         
         
@@ -74,9 +72,9 @@ public class MasterMind {
             
             do // Ejecuta mientras el valor no sea de 3 dígitos exactos.
             {
-                combinacion = String.valueOf(Utilidades.leerEnteroConLimiteDeDigitos("\nEscribe la combinación de 3 dígitos: ", 3)) ;
+                combinacion = String.format("%03d", Utilidades.leerEnteroConDigitosExactos("\nEscribe la combinación de 3 dígitos: ", 3)) ;
                 
-                if (combinacion.length() != 3) 
+                if (combinacion.length() < 3) 
                 {
                     System.out.println("\nLa combinación debe ser de 3 dígitos.") ;
                 }
@@ -98,8 +96,10 @@ public class MasterMind {
         }
         
         
-        public void comparaArrays(int[] array, int[] arrayUsuario){
+        public String[] comparaArrays(int[] array, int[] arrayUsuario){
             // MÉTODO QUE COMPARA LOS ARRAYS
+            
+            String[] pista = new String[3] ;
             
             List<Integer> resultado = Arrays.stream(array).boxed().collect(Collectors.toList()) ;
             
@@ -107,24 +107,61 @@ public class MasterMind {
             {
                 if (resultado.contains(arrayUsuario[i]) && ( array[i] == arrayUsuario[i]) ) 
                 {
-                    System.out.println("El valor " + arrayUsuario[i] + " está contenido en el resultado y coincide con la posición (VERDE).");
+                    pista[i] = Utilidades.coloreaCadena("v", Utilidades.verde) ;
                 }
                 else if (resultado.contains(arrayUsuario[i]) && ( array[i] != arrayUsuario[i]) ) 
                 {
-                    System.out.println("El valor " + arrayUsuario[i] + " está contenido en el resultado (AMARILLO).");
+                    pista[i] = Utilidades.coloreaCadena("a", Utilidades.amarillo) ;
                 }
                 
                 else
                 {
-                    System.out.println("El valor " + arrayUsuario[i] + " no está contenido en el resultado (ROJO)");
+                    pista[i] = Utilidades.coloreaCadena("r", Utilidades.rojo) ;
                 }
             }
             
+            return pista ;
         }
+        
+        public boolean jugar(){
+            
+            int intentos = 1 ;
+            int contadorVerde = 0 ;
+            boolean encontrado = false ;
+            
+            String[] pista = new String[3] ;
+            
+            generaValoresAleatorios(this.array) ;
+            
+            while (intentos <= 7 && !encontrado) {
+                // Si no se han superado los intentos y no se ha adivinado la combinación, ejecuta el código.
+                
+                System.out.println("\nINTENTO " + intentos);
+                System.out.println("---------------");
+                
+                for (int i : array) { // ----------------- PROVISIONAL ------------------------
+                    System.out.print(i + " ");
+                }
+                
+                this.arrayUsuario = pideValoresAUsuario() ;
+                pista = comparaArrays(this.array, this.arrayUsuario) ;
+                
+                for (String i : pista) 
+                {
+                    System.out.print(i + " ") ;
+                }
+                
+                
+            }
+        }
+        
+        // --------------------------------------------------------------------------------------------------
         
         public static void main(String[] args) { // -------- MAIN DE PRUEBAS --------------
         int array[] = new int[3];
         int arrayUsuario[] = new int[3] ;
+        String pista[] = new String[3] ;
+        
         boolean encontrado = false ;
         
         MasterMind partida1 = new MasterMind() ;
@@ -132,7 +169,7 @@ public class MasterMind {
         array = partida1.getArray() ;
         
         
-        array = partida1.generaValoresAleatorios(array);
+        partida1.generaValoresAleatorios(array);
         
             for (int i : array) {
                 System.out.print(i + " ");
@@ -140,7 +177,11 @@ public class MasterMind {
             
         arrayUsuario = partida1.pideValoresAUsuario() ;
         
-        partida1.comparaArrays(array, arrayUsuario);
+        pista = partida1.comparaArrays(array, arrayUsuario);
+        
+            for (String i : pista) {
+                System.out.print(i + " ");
+            }
         
     }
 }

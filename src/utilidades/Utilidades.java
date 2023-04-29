@@ -132,6 +132,56 @@ public class Utilidades {
     }
     
     
+         /**
+     * Método que pide al usuario un número entero pudiendo personalizar el 
+     * mensaje de petición y limitando el número de dígitos de forma exacta.
+     * 
+     * @param msg String. Mensaje con el que se pide el número al usuario.
+     * @param numDigitos. Indica el número de dígitos exactos permitidos.
+     * @return int entero. Devuelve el número introducido por el usuario.
+     */
+    public static int leerEnteroConDigitosExactos(String msg, int numDigitos){
+        
+        int entero = 0;
+        boolean validador = false ;
+        Scanner entrada = new Scanner(System.in) ;
+        
+        do {
+            System.out.println(msg);
+            String mensaje = entrada.nextLine() ;
+           
+            if (mensaje.length() == numDigitos) // Si la longitud de la cadena es igual que el límite...
+            {
+                try // ...ejecuta el código.
+                {
+                    entero = Integer.parseInt(mensaje) ;
+                    validador = true ;
+                }
+                catch (InputMismatchException e) {
+
+                    System.out.println("\nNo has introducido un número entero.");
+                }
+                catch (NumberFormatException e) {
+
+                    System.out.println("\nNo has introducido un número entero.");
+                }
+                catch (Exception e) {
+
+                    System.out.println("\nOcurrió algún error.");
+                }
+            }
+            else // Si no es igual al número de dígitos deseado muestra un mensaje por pantalla.
+            {
+                System.out.println("\nEl número debe tener " + numDigitos + " dígito/s exacto/s.");
+            }
+            
+        } while (!validador);
+
+     
+        return entero ;
+    }
+    
+    
     /**
      * Método que sirve para leer un caracter pedido al usuario/a.
      * 
