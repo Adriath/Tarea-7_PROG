@@ -105,13 +105,18 @@ public class MasterMind {
             
             for (int i = 0; i < arrayUsuario.length; i++) 
             {
-                if (resultado.contains(arrayUsuario[i])) 
+                if (resultado.contains(arrayUsuario[i]) && ( array[i] == arrayUsuario[i]) ) 
                 {
-                    System.out.println("El valor " + arrayUsuario[i] + " está contenido en el resultado.");
+                    System.out.println("El valor " + arrayUsuario[i] + " está contenido en el resultado y coincide con la posición (VERDE).");
                 }
+                else if (resultado.contains(arrayUsuario[i]) && ( array[i] != arrayUsuario[i]) ) 
+                {
+                    System.out.println("El valor " + arrayUsuario[i] + " está contenido en el resultado (AMARILLO).");
+                }
+                
                 else
                 {
-                    System.out.println("El valor " + arrayUsuario[i] + " no está contenido en el resultado");
+                    System.out.println("El valor " + arrayUsuario[i] + " no está contenido en el resultado (ROJO)");
                 }
             }
             
