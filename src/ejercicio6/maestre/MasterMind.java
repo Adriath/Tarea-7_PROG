@@ -62,15 +62,32 @@ public class MasterMind {
             return array ;
         }
         
-        public int[] pideValoresAUsuario()
-        {
-            String valores ;
+        
+        public int[] pideValoresAUsuario(){
+            //MÉTODO QUE PIDE LOS VALORES AL USUARIO PARA LUEGO ALMACENARLOS COMO ARRAY DE TIPO ENTERO
+            
+            String combinacion ;
+            boolean validador = false ;
             
             int[] arrayUsuario = new int[3];
             String[] valoresExtraidos = new String[3] ;
             
-            valores = String.valueOf(Utilidades.leerEnteroConLimiteDeDigitos("\nEscribe la combinación de 3 dígitos: ", 3)) ;
-            valoresExtraidos = valores.split("") ;
+            do // Ejecuta mientras el valor no sea de 3 dígitos exactos.
+            {
+                combinacion = String.valueOf(Utilidades.leerEnteroConLimiteDeDigitos("\nEscribe la combinación de 3 dígitos: ", 3)) ;
+                
+                if (combinacion.length() != 3) 
+                {
+                    System.out.println("\nLa combinación debe ser de 3 dígitos.") ;
+                }
+                else
+                {
+                    validador = true ;
+                }
+                
+            } while (!validador);
+            
+            valoresExtraidos = combinacion.split("") ;
             
             for (int i = 0; i < this.arrayUsuario.length; i++) 
             {
@@ -80,12 +97,13 @@ public class MasterMind {
             return arrayUsuario ;
         }
         
+        
         public void comparaArrays(int[] array, int[] arrayUsuario){
             // MÉTODO QUE COMPARA LOS ARRAYS
             
             List<Integer> resultado = Arrays.stream(array).boxed().collect(Collectors.toList()) ;
             
-            for (int i = 0; i < array.length; i++) 
+            for (int i = 0; i < arrayUsuario.length; i++) 
             {
                 if (resultado.contains(arrayUsuario[i])) 
                 {
@@ -93,15 +111,15 @@ public class MasterMind {
                 }
                 else
                 {
-                    System.out.println("El valor " + this.arrayUsuario[i] + " no está contenido en el resultado");
+                    System.out.println("El valor " + arrayUsuario[i] + " no está contenido en el resultado");
                 }
             }
             
         }
         
         public static void main(String[] args) { // -------- MAIN DE PRUEBAS --------------
-        int array[] ;
-        int arrayUsuario[] ;
+        int array[] = new int[3];
+        int arrayUsuario[] = new int[3] ;
         boolean encontrado = false ;
         
         MasterMind partida1 = new MasterMind() ;
@@ -117,11 +135,7 @@ public class MasterMind {
             
         arrayUsuario = partida1.pideValoresAUsuario() ;
         
-            for (int i : arrayUsuario) {
-                
-                System.out.println("Los valores son: ");
-                System.out.println(i);
-            }
+        partida1.comparaArrays(array, arrayUsuario);
         
     }
 }
