@@ -1,6 +1,9 @@
 
 package ejercicio6.maestre;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import utilidades.Utilidades;
 
 /**
@@ -59,12 +62,23 @@ public class MasterMind {
             return array ;
         }
         
-        public String[] comparaArrays(int[] array, int[] arrayUsuario){
+        public void comparaArrays(int[] array, int[] arrayUsuario){
             // MÉTODO QUE COMPARA LOS ARRAYS
             
-          
+            List<Integer> resultado = Arrays.stream(array).boxed().collect(Collectors.toList()) ;
             
-            return  ;
+            for (int i = 0; i < array.length; i++) 
+            {
+                if (resultado.contains(arrayUsuario[i])) 
+                {
+                    System.out.println("El valor " + arrayUsuario[i] + " está contenido en el resultado.");
+                }
+                else
+                {
+                    System.out.println("El valor " + this.arrayUsuario[i] + " no está contenido en el resultado");
+                }
+            }
+            
         }
         
         public static void main(String[] args) { // -------- MAIN DE PRUEBAS --------------
@@ -98,11 +112,8 @@ public class MasterMind {
                     
                 }
                 
-                String pista[] = new String[3] ;
-        pista = partida1.comparaArrays(array, arrayUsuario) ;
+                
+        partida1.comparaArrays(array, arrayUsuario) ;
         
-                for (String i : pista) {
-                    System.out.print(i + " ");
-                }
     }
 }
