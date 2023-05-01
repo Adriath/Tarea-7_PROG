@@ -140,14 +140,16 @@ public class MasterMind {
                 encontrado = true ;
             }
             
+            System.out.println("");
             for (String i : pista) // Muestra las pistas recogidas.
             {
                 System.out.print(i + " ");
             }
+            System.out.println("");
             
             contadorVerde = 0 ;
                 /* El contador vuelve a ser 0 porque este método está pensado para ser ejecutado en un bucle.
-                Siguiendo esta lógica, si no reiniciamos el valor, se va a acumular el conteo de los aciertos (verde) 
+                Siguiendo esta lógica, si no reiniciamos el valor, puede que se acumule el conteo de los aciertos (verde) 
                 de un intento a otro. Al reiniciarlo se comienza a 0 en cada interacción por lo que solamente se puede 
                 llegar a 3 si se adivina en el mismo intento.
                 */
@@ -178,7 +180,15 @@ public class MasterMind {
                 
                 this.arrayUsuario = pideValoresAUsuario() ; // Pide los valores y los almacena
                 
-                encontrado = comparaArrays(this.array, this.arrayUsuario) ; // Compara las combinaciones, imprime las pistas y evualúa si se ha adivinado.                
+                encontrado = comparaArrays(this.array, this.arrayUsuario) ; // Compara las combinaciones, imprime las pistas y evualúa si se ha adivinado
+                
+                intentos++ ;
+                
+                if (encontrado) 
+                {
+                    System.out.println("\n¡Enhorabuena, has adivinado la combinación!") ;
+                    System.out.println("Has utilizado " + (intentos - 1) + " intento/s.") ;
+                }
                 
             }
             
@@ -188,26 +198,37 @@ public class MasterMind {
         // --------------------------------------------------------------------------------------------------
         
         public static void main(String[] args) { // -------- MAIN DE PRUEBAS --------------
-        int array[] = new int[3];
-        int arrayUsuario[] = new int[3] ;
-        String pista[] = new String[3] ;
-        
+//        int array[] = new int[3];
+//        int arrayUsuario[] = new int[3] ;
+//        String pista[] = new String[3] ;
+//        
         boolean encontrado = false ;
         
         MasterMind partida1 = new MasterMind() ;
         
-        array = partida1.getArray() ;
+//        array = partida1.getArray() ;
         
         
-        partida1.generaValoresAleatorios(array);
+//        partida1.generaValoresAleatorios(array);
+//        
+//            for (int i : array) {
+//                System.out.print(i + " ");
+//            }
+//            
+//        arrayUsuario = partida1.pideValoresAUsuario() ;
+//        
+//        partida1.comparaArrays(array, arrayUsuario);
+
+        encontrado = partida1.jugar() ;
         
-            for (int i : array) {
-                System.out.print(i + " ");
+            if (encontrado) 
+            {
+                System.out.println("\n¡Enhorabuena!");
             }
-            
-        arrayUsuario = partida1.pideValoresAUsuario() ;
-        
-        partida1.comparaArrays(array, arrayUsuario);
+            else
+            {
+                System.out.println("\nHas perdío, pringao.");
+            }
         
     }
 }

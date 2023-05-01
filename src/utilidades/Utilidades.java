@@ -553,7 +553,7 @@ public class Utilidades {
      */
     public static String coloreaCadena(String cadena, String color){
         
-        String cadenaColoreada = color + cadena ;
+        String cadenaColoreada = color + cadena + reset;
         
         return cadenaColoreada ;
     }

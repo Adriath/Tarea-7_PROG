@@ -18,7 +18,18 @@ public class Lanzador {
      */
     public static void main(String[] args) {
         
+        boolean encontrado = false ;
         
+        MasterMind partida1 = new MasterMind() ;
+        
+        encontrado = partida1.jugar() ;
+        
+        if (!encontrado) 
+        {
+            System.out.println("\nSe han agotado los intentos y no has adivinado la combinación, lo siento mucho.");
+        }
+        
+        System.out.println("\n¡GRACIAS POR JUGAR!") ;
     }
     
 }
