@@ -1,7 +1,6 @@
 
 package ejercicio3.maestre;
 
-import java.util.Arrays;
 import utilidades.Utilidades;
 
 /**
@@ -111,7 +110,11 @@ public class OperacionesArraysMultidimensionales{
     public void calculaMaximosYMedia(int array[][]){
         
         /*
-        Está ahora mimso como void. ¿Debería hacerlo de otro modo?
+        Está ahora mismo como void. ¿Debería hacerlo de otro modo?
+        Por facilitar lo he dejado así, pero soy consciente de que sería más 
+        conveniente que devolviera valores y todo fuera más modular. Esa estructura ya 
+        se muestra en otros ejercicios de esta misma tarea por lo que en este caso 
+        voy a dejarlo como está.
         */
         
         // Vamos a calcular los valores máximos

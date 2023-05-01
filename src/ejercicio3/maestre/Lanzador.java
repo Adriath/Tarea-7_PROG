@@ -4,8 +4,11 @@ package ejercicio3.maestre;
 import utilidades.Utilidades;
 
 /**
- *
+ * Lanzador que contiene el método main para realizar operaciones con arrays 
+ * multidimensionales.
+ * 
  * @author Adrián Arjona
+ * @version Marzo 2023
  */
 public class Lanzador {
     
@@ -13,7 +16,13 @@ public class Lanzador {
         UNIDAD 7: aplicación de las estructuras de almacenamiento.
     */
     
-       public static void main(String[] args) {
+       
+    /**
+     * Método main.
+     * 
+     * @param args 
+     */
+    public static void main(String[] args) {
         
         int longitudX = 0 ;
         int longitudY = 0 ;
