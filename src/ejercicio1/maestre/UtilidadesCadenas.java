@@ -110,6 +110,111 @@ public class UtilidadesCadenas {
        
        return cad ;
    }
-   
     
+    
+    // ------------------------------------------------------------
+    // -------------------- MÉTODO MAIN ---------------------------
+    // ------------------------------------------------------------
+    
+    /**
+     * Método main del ejercicio 1.
+     * 
+     * @param args 
+     */
+    public static void main(String[] args) {
+        
+        char letra ;
+        boolean validador = false ;
+        
+        
+        System.out.println("Vamos a hacer un pequeño recorrido por los apartados "
+                + "de este ejercicio para mostrarlos mediante su ejecución.\n");
+        
+        // APARTADO A
+        
+        System.out.println("\nAPARTADO A") ;
+        System.out.println("-------------\n") ;
+        
+        System.out.println("Recibe dos cadenas y devuelve una cadena resultado de unir las dos anteriores.");
+        
+        String cadena1 = Utilidades.leerString("\nIntroduce la primera cadena:") ;
+        String cadena2 = Utilidades.leerString("\nIntroduce la segunda cadena:") ;
+        
+        System.out.println("\nAhora vamos a unirlas y a mostrar el resultado.\n") ;
+        System.out.println("La cadena resultante es: ") ;
+        System.out.println(unirCadenas(cadena1, cadena2));
+        
+        // APARTADO B
+        
+        System.out.println("\nAPARTADO B") ;
+        System.out.println("-------------\n") ;
+        
+        System.out.println("Recibe una cadena y una letra, y devuelva cuántas veces está dicha letra en la cadena.");
+        
+        String cadena = Utilidades.leerString("\nIntroduce la cadena con la que quieres hacer la comprobación:") ;
+        
+        do 
+        {
+            letra = Utilidades.leerCaracter("\nAhora introduce la letra que quieres contar dentro de la cadena:") ;
+            
+            if (Character.isLetter(letra)) 
+            {
+                validador = true ;
+            }
+            else
+            {
+                System.out.println("\nDebes introducir una letra.") ;
+            }
+            
+        } while (!validador);
+        
+        int conteoLetra = cuantasVecesApareceLetra(cadena, letra) ;
+        
+        if (conteoLetra == 0) 
+        {
+            System.out.println("\nLa letra \"" + letra + "\" no aparece en la cadena.") ;
+        }
+        else if (conteoLetra == 1) 
+        {
+            System.out.println("\nLa letra \"" + letra + "\" aparece 1 vez.") ;
+        }
+        else
+        {
+            System.out.println("\nLa letra \"" + letra + "\" aparece " + conteoLetra + " veces.") ;
+        }
+        
+        
+        // APARTADO C
+        
+        System.out.println("\nAPARTADO C") ;
+        System.out.println("-------------\n") ;
+        
+        System.out.println("Reciba una cadena y diga si es palíndroma.") ;
+        
+        String cadenaPalindroma = Utilidades.leerString("\nIntroduce la cadena para comprobar si es palíndroma:") ;
+        
+        boolean esPalindroma = compruebaPalidromo(cadenaPalindroma) ;
+        
+        if (esPalindroma) 
+        {
+            System.out.println("\nLa cadena " + cadenaPalindroma + " es palíndroma.") ;
+        }
+        else
+        {
+            System.out.println("\nLa cadena " + cadenaPalindroma + " no es palíndroma.") ;
+        }
+        
+        
+         // APARTADO D
+        
+        System.out.println("\nAPARTADO D") ;
+        System.out.println("-------------\n") ;
+        
+        System.out.println("Reciba una cadena, y la devuelva girada, es decir al revés.") ;
+        
+        String cadenaGirada = Utilidades.leerString("\nIntroduce la cadena que quieres girar:") ;
+        System.out.println("\nAquí tienes la cadnea girada:") ;
+
+        System.out.println("\n" + giraCadena(cadenaGirada)) ;
+    }
 }
