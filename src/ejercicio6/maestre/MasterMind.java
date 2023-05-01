@@ -19,6 +19,16 @@ public class MasterMind {
         UNIDAD 7: aplicación de las estructuras de almacenamiento.
     */
     
+    /* 
+        NOTA IMPORTANTE:
+        -----------------------------------------------------------
+        He dejado habilitado un método dentro de jugar() llamado muestraArray().
+        Sirve para que la combincación sea visible y así facilitar tanto las pruebas 
+        como la corrección.
+        Si se quiere desactivar basta con comentar esa línea de código.
+        -----------------------------------------------------------
+    */ 
+    
     
     // ---------------- DECLARACIÓN DE VARIABLES -----------------
     
@@ -29,20 +39,36 @@ public class MasterMind {
     
         // ------ CONSTRUCTOR ---------
     
-        public MasterMind(){ // CONSTRUCTOR CON PARÁMETROS
+        
+        /**
+         * Constructor por defecto.
+         */
+        public MasterMind(){
         
             this.array = new int[3];
             this.arrayUsuario = new int[3] ;
         }
     
+        
         // ------- GETTERS & SETTERS ---------
 
-        public int[] getArray() { // GETTER DE ARRAY
+        
+        /**
+         * Método que devuelve el array.
+         * 
+         * @return Devuelve un array de tipo entero.
+         */
+        public int[] getArray() {
             
             return array;
         }
         
-        public int[] getArrayUsuario() { // GETTER DE ARRAY USUARIO
+        /**
+         * Método que devuelve el array del usuario.
+         * 
+         * @return Devuelve el array del usuario.
+         */
+        public int[] getArrayUsuario() {
             
             return arrayUsuario;
         }
@@ -50,9 +76,14 @@ public class MasterMind {
         
         // ------ PERSONALIZADOS -------
         
+        
+        /**
+         * Método que gene4ra tres números aleatorios y los guarda en el array.
+         * 
+         * @param array Array que guarda la combinación a adivinar.
+         */
         public void generaValoresAleatorios(int[] array){
-            //MÉTODO QUE GENERA TRES NÚMEROS ALEATORIOS Y LOS GUARDA EN EL ARRAY
-            
+                        
             array[0] = Utilidades.numeroAleatorioDesdeoCero(10) ; // Genera número del 0 al 9 y lo guarda en la primera posición.
             array[1] = Utilidades.numeroAleatorioDesdeoCero(10) ; // Genera número del 0 al 9 y lo guarda en la segunda posición.
             array[2] = Utilidades.numeroAleatorioDesdeoCero(10) ; // Genera número del 0 al 9 y lo guarda en la tercera posición.
@@ -61,9 +92,13 @@ public class MasterMind {
         }
         
         
+        /**
+         * Método que pide los valres al usuario para luego almacenarlos com oarray de tipo entero.
+         * 
+         * @return Devuelve un array de tipo entero.
+         */
         public int[] pideValoresAUsuario(){
-            //MÉTODO QUE PIDE LOS VALORES AL USUARIO PARA LUEGO ALMACENARLOS COMO ARRAY DE TIPO ENTERO
-            
+                        
             String combinacion ;
             boolean validador = false ;
             
@@ -96,8 +131,15 @@ public class MasterMind {
         }
         
         
+        /**
+         * Método que compara los arrays. Contará los aciertos (color verde). Se 
+         * considera encontrado si se han adivinado los tres dígitos.
+         * 
+         * @param array Array con la combinación a adivinar.
+         * @param arrayUsuario Array del usuario.
+         * @return Duvuelve true si los tres dígitos coinciden, false si no.
+         */
         public boolean comparaArrays(int[] array, int[] arrayUsuario){
-            // MÉTODO QUE COMPARA LOS ARRAYS
             
             int contadorVerde = 0 ;
             boolean encontrado = false ;
@@ -157,8 +199,27 @@ public class MasterMind {
             return encontrado ;
         }
         
+        
+        /**
+         * Método privado que muestra el array. Pensado para pruebas y corrección.
+         * 
+         * @param array Array que se quiere mostrar.
+         */
+        private void muestraArray(int array[]){
+            
+            for (int i : array) 
+            {
+                System.out.print(i + " ");
+            }
+        }
+        
+        
+        /**
+         * Método que planifica una partida a MasterMind.
+         * 
+         * @return Devuelve true si se ha conseguido dentro de los intentos permitidos y false si no.
+         */
         public boolean jugar(){
-            // MÉTODO PARA JUGAR UNA PARTIDA AL MASTERMIND.
             
             int intentos = 1 ;
             boolean encontrado = false ;
@@ -173,10 +234,8 @@ public class MasterMind {
                 System.out.println("\nINTENTO " + intentos); // Indica por pantalla el intento en curso
                 System.out.println("---------------");
                 
-//                for (int i : array) { // -------- BUCLE FOR PARA PRUEBAS. COMENTAR PARA QUE NO APAREZCA EL RESULTADO -------------
-//                    
-//                    System.out.print(i + " ");
-//                }
+                muestraArray(array); // -------- BUCLE FOR PARA PRUEBAS. COMENTAR PARA QUE NO APAREZCA EL RESULTADO -------------                    
+
                 
                 this.arrayUsuario = pideValoresAUsuario() ; // Pide los valores y los almacena
                 
@@ -195,40 +254,4 @@ public class MasterMind {
             return encontrado ;
         }
         
-        // --------------------------------------------------------------------------------------------------
-        
-        public static void main(String[] args) { // -------- MAIN DE PRUEBAS --------------
-//        int array[] = new int[3];
-//        int arrayUsuario[] = new int[3] ;
-//        String pista[] = new String[3] ;
-//        
-        boolean encontrado = false ;
-        
-        MasterMind partida1 = new MasterMind() ;
-        
-//        array = partida1.getArray() ;
-        
-        
-//        partida1.generaValoresAleatorios(array);
-//        
-//            for (int i : array) {
-//                System.out.print(i + " ");
-//            }
-//            
-//        arrayUsuario = partida1.pideValoresAUsuario() ;
-//        
-//        partida1.comparaArrays(array, arrayUsuario);
-
-        encontrado = partida1.jugar() ;
-        
-            if (encontrado) 
-            {
-                System.out.println("\n¡Enhorabuena!");
-            }
-            else
-            {
-                System.out.println("\nHas perdío, pringao.");
-            }
-        
-    }
 }
