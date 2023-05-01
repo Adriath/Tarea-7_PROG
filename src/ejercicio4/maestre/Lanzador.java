@@ -25,6 +25,11 @@ public class Lanzador {
     // ------------------------------------------------------------
     
     
+    /**
+     * Método main para los cuerpos celestes.
+     * 
+     * @param args 
+     */
     public static void main(String[] args) {
         
         int opcion ;
@@ -50,6 +55,9 @@ public class Lanzador {
     
 // ------------------ MÉTODOS DEL MENÚ ------------------------------
     
+    /**
+     * Método para añadir cuerpos celestes.
+     */
     private static void aniadirCuerpoCeleste(){
         
         short codigoCuerpo ;

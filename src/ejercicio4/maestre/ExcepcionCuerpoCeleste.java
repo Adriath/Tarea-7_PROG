@@ -14,7 +14,12 @@ public class ExcepcionCuerpoCeleste extends Exception {
         UNIDAD 7: aplicación de las estructuras de almacenamiento.
     */
     
-     public ExcepcionCuerpoCeleste (String msj){
+    /**
+     * Excepeción del cuerpo celeste.
+     * 
+     * @param msj Mensaje para el/la usuario/a.
+     */
+    public ExcepcionCuerpoCeleste (String msj){
         
         super(msj) ;
     }

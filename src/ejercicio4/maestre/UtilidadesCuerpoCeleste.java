@@ -15,7 +15,13 @@ public class UtilidadesCuerpoCeleste {
     
       
     
-    public static boolean compruebaCodigo(short codigo){ // COMPRUEBA SI EL CÓDIGO TIENE 3 DÍGITOS
+    /**
+     * Comprueba si el código tiene 3 dígitos.
+     * 
+     * @param codigo Código del cuerpo celeste.
+     * @return Devuelve true si el código es válido, false si no.
+     */
+    public static boolean compruebaCodigo(short codigo){
         
         boolean valido = false ;
         
@@ -25,7 +31,14 @@ public class UtilidadesCuerpoCeleste {
         return valido ;
     }
     
-    public static boolean compruebaNombre(String nombre){ // CPMPRUEBA SI EL NOMBRE TIENE COMO MÁXIMO 15 CARACTERES
+    
+    /**
+     * Comprueba si el nombre tiene como máximo 15 caracteres.
+     * 
+     * @param nombre Nombre del cuerpo celeste.
+     * @return Devuelve true si es válido y false si no.
+     */
+    public static boolean compruebaNombre(String nombre){
         
         boolean valido = false ;
         
@@ -35,6 +48,13 @@ public class UtilidadesCuerpoCeleste {
         return valido ;
     }
     
+    
+    /**
+     * Comprueba si el diámetro del cuerpo celeste es válido.
+     * 
+     * @param diametro Diámetro del cuerpo celeste.
+     * @return Devuelve true si el diámetro es válido, false si no.
+     */
     public static boolean compruebaDiametro(int diametro){
         
         boolean valido = false ;

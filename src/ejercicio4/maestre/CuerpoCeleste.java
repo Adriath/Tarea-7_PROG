@@ -1,9 +1,6 @@
 
 package ejercicio4.maestre;
 
-
-import java.io.Serializable;
-
 /**
  * Clase de la tarea 6 de programación reutilzado para la tarea 7.
  * 
@@ -26,14 +23,29 @@ public class CuerpoCeleste{
     
     // CONSTRUCTORES
     
-    public CuerpoCeleste() { // CONSTRUCTOR POR DEFECTO
+    
+    /**
+     * Constructor por defecto.
+     */
+    public CuerpoCeleste() {
         codigoCuerpo = 0 ;
         nombre = "" ;
         tipoObjeto = "" ;
         diametro = 0 ;
     }
     
-    public CuerpoCeleste(short codigoCuerpo, String nombre, String tipoObjeto, int diametro) throws ExcepcionCuerpoCeleste{ // CONSTRUCTOR CON PARÁMETROS
+    
+    /**
+     * Constructor con parámetros.
+     * 
+     * @param codigoCuerpo Código del cuerpo celeste.
+     * @param nombre Nombre del cuerpo celeste.
+     * @param tipoObjeto Tipo de objeto.
+     * @param diametro Diámetro del cuerpo celeste.
+     * 
+     * @throws ExcepcionCuerpoCeleste Lanza excepción del cuerpo celeste.
+     */
+    public CuerpoCeleste(short codigoCuerpo, String nombre, String tipoObjeto, int diametro) throws ExcepcionCuerpoCeleste{
         
         this.setCodigoCuerpo(codigoCuerpo); // El código tiene que ser de tres dígitos como máximo.
         this.setNombre(nombre); // El nombre puede tener 15 caracteres como máximo
@@ -45,11 +57,24 @@ public class CuerpoCeleste{
     // GETTERS & SETTERS
     
 
-    public int getDiametro() { // GET DE DIÁMETRO
+    /**
+     * Método que devuelve el diámetro.
+     * 
+     * @return Diámetro del cuerpo celeste.
+     */
+    public int getDiametro() {
         return diametro;
     }
 
-    public void setDiametro(int diametro) throws ExcepcionCuerpoCeleste{ // CONTROLA QUE EL DIÁMTRO NO SEA SUPERIOR A 6 DÍGITOS
+    
+    /**
+     * Controla que el diámetro no sea superior a 6 dígitos y lo modifica.
+     * 
+     * @param diametro Diámetro del cuerpo celeste.
+     * 
+     * @throws ExcepcionCuerpoCeleste Excepción del cuerpo celeste.
+     */
+    public void setDiametro(int diametro) throws ExcepcionCuerpoCeleste{
         
         if ((diametro >= 0) && (diametro <= 999999) ) 
         {
@@ -61,10 +86,23 @@ public class CuerpoCeleste{
         }
     }
 
-    public String getNombre() { // GET DE NOMBRE
+    /**
+     * Método que devuelve el nombre del cuerpo celeste.
+     * 
+     * @return Nombre del cuerpo celeste.
+     */
+    public String getNombre() {
         return nombre;
     }
-
+    
+    
+    /**
+     * Controla que el nombre tenga 15 caracteres como máximo y lo modifica.
+     * 
+     * @param nombre Nombre del cuerpo celeste.
+     * 
+     * @throws ExcepcionCuerpoCeleste Excepeción del cuerpo celeste.
+     */
     public void setNombre(String nombre) throws ExcepcionCuerpoCeleste{ // CONTROLA QUE EL NOMBRE TENGA 15 CARACTERES COMO MÁXIMO
         
         if (nombre.length() <= 15) 
@@ -77,18 +115,44 @@ public class CuerpoCeleste{
         }
     }
 
-    public String getTipoObjeto() { // GET DE TIPO OBJETO
+    
+    /**
+     * Devuelve el tipo de objeto.
+     * 
+     * @return Tipo de objeto.
+     */
+    public String getTipoObjeto() {
         return tipoObjeto;
     }
 
-    public void setTipoObjeto(String tipoObjeto) { // SET DE TIPO OBJETO
+    
+    /**
+     * Modifica el tipo de objeto.
+     * 
+     * @param tipoObjeto Tipo de objeto.
+     */
+    public void setTipoObjeto(String tipoObjeto) {
         this.tipoObjeto = tipoObjeto;
     }
+    
 
-    public short getCodigoCuerpo() { // GET DE CÓDIGO CUERPO
+    /**
+     * Devuelve el código del cuerpo celeste.
+     * 
+     * @return Código del cuerpo celeste.
+     */
+    public short getCodigoCuerpo() {
         return codigoCuerpo;
     }
 
+    
+    /**
+     * Control que el código sea de 3 dígitos y lo modifica.
+     * 
+     * @param codigoCuerpo Código del cuerpo celeste.
+     * 
+     * @throws ExcepcionCuerpoCeleste Excepción del cuerpo celeste.
+     */
     public void setCodigoCuerpo(short codigoCuerpo)throws ExcepcionCuerpoCeleste{ // CONTROLA QUE EL CÓDIGO SEA DE 3 DÍGITOS
         
         if (codigoCuerpo >= 0 && codigoCuerpo <= 999) 
@@ -103,6 +167,11 @@ public class CuerpoCeleste{
 
     // MÉTODO TO STRING
     
+    /**
+     * Método toString() de la clase Cuerpo Celeste.
+     * 
+     * @return Los elementos del cuerpo celeste.
+     */
     @Override
     public String toString() {
         return "CÓDIGO = " + codigoCuerpo + "  \tNOMBRE = " + nombre + "    " + " \t\tTIPO = " + tipoObjeto + "  \tDIÁMETRO = " + diametro ;
