@@ -9,6 +9,7 @@ import utilidades.Utilidades;
  * en una posición aleatoria de un array.
  * 
  * @author Adrián Arjona
+ * @version Marzo 2023
  */
 public class JuegoMosca {
     
@@ -16,37 +17,95 @@ public class JuegoMosca {
         UNIDAD 7: aplicación de las estructuras de almacenamiento.
     */
     
+    
+    /*
+    NOTA IMPORTANTE:
+    
+    HE DEJADO HABILITADA LA VISIBILIDAD DEL CASILLERO PARA FACILITAR LA CORRECCIÓN.
+    SI SE QUIERE OCULTAR BASTA CON COMENTAR LA LÍNEA QUE HACE ALUSIÓN AL MÉTODO 
+    muestraArray() DENTRO DEL MÉTODO jugar().
+    */
+    
+    
+    // ---------- DECLARACIÓN DE VARIABLES --------------
+    
     private int array[] ;
     private int rondas ;
     private int longitud ;
     
+    
+    // ------------ MÉTODOS --------------
+    
+
+        // ------------ CONSTRUCTOR --------------
+    
+    
+    /**
+     * Constructor del juego de la mosca.
+     * 
+     * @param array Array que alojará la mosca.
+     * @param rondas Número de rondas que tendrá la partida.
+     * @param longitud Longitud del array para determinar la dificultad.
+     */
     public JuegoMosca(int[] array, int rondas, int longitud){
         
         this.array = new int[longitud] ;
         this.rondas = rondas ;
     }
     
-//    public int[] crearArray(int longitud){ // MÉTODO QUE CREA UNA ARRAY DE LA LONGITUD DESEADA
-//        
-//        return new int[longitud] ;
-//    }
+        // ------------ GETTERS & SETTERS --------------
     
-     public int[] getArray() { // GETTER DE ARRAY
+    /**
+     * Devuelve el array.
+     * 
+     * @return Array unidimensional de tipo entero.
+     */
+    public int[] getArray() {
         return array;
     }
     
-    public void posicionarMosca(int array[]){ // MÉTODO QUE RESETEA EL ARRAY Y POSICIONA LA MOSCA (VALOR 1) EN UNA POSICIÓN ALEATORIA
+    
+        // ------------ PERSONALIZADOS --------------
+     
+    /**
+    * Método que resetea el array cuando se falla para que se puedan dar valores nuevos.
+    * 
+    * @param array Array de dos dimensiones de tipo entero.
+    */
+    public void resetearArray(int array[]){
+        
+        for (int i = 0; i < array.length; i++) 
+        {
+            array[i] = 0 ;
+        }
+    }
+     
+    
+    /**
+     * Método que resetea el array y posiciona la mosca (valor 1) en una posición aleatoria.
+     * 
+     * @param array Array de tipo entero.
+     */
+    public void posicionarMosca(int array[]){
         
         int posicionMosca ;
         
-        posicionMosca = Utilidades.numeroAleatorio((array.length - 1)) ; // Selecciona un núemro aleatorio para la posición de la mosca en el array
+        resetearArray(array) ;
         
-      
+        posicionMosca = Utilidades.numeroAleatorioDesdeoCero((array.length)) ; // Selecciona un núemro aleatorio para la posición de la mosca en el array
         
         array[posicionMosca] = 1 ; // Luego le damos el valor 1 (donde está la mosca) a la posición aleatoria escogida anteriormente
     }
     
-    private void muestraArray(int array[]){ // MÉTODO QUE MUESTRA UN CASILLERO HORIZONTAL CON LAS POSICIONES (SÓLO PARA PRUEBAS, tendrá que ser private luego)
+    
+    
+    /**
+     * Método privado que muestra un casillero horizontal con las posiciones
+     * SÓLO PARA PRUEBAS Y CORRECCIÓN. COMENTAR SI SE QUIERE JUGAR COMO USUARIO/A
+     * 
+     * @param array Array de tipo entero.
+     */
+    private void muestraArray(int array[]){
         
         for (int i = 0; i < array.length; i++) 
         {
@@ -63,6 +122,12 @@ public class JuegoMosca {
     }
     
     
+    /**
+     * Método que secuencia una partida del juego de la mosca.
+     * 
+     * @param array Array tipo entero.
+     * @return Devuelve true si la mosca ha sido encontrada y false si no.
+     */
     public boolean jugar(int array[]){
         
         int contador = 1 ;
@@ -74,7 +139,7 @@ public class JuegoMosca {
         
         while ((contador <= this.rondas) && (!encontrado)) // Si no se ha llegado a la última ronda y la mosca no ha sido encontrada
             {
-                muestraArray(array); // ---------------- ESTO ES PROVISIONAL, LO TENGO QUE QUITAR ------------------
+                muestraArray(array); // ---------------- COMENTAR EN CASO DE NO QUERER VER EL CASILLERO ------------------
             
                 System.out.println("\nRONDA " + contador);
                 System.out.println("----------------------");

@@ -8,6 +8,7 @@ import utilidades.Utilidades;
  * para ejecutar la partida.
  * 
  * @author Adrián Arjona
+ * @version Marzo 2023
  */
 public class Lanzador {
     
@@ -15,6 +16,11 @@ public class Lanzador {
         UNIDAD 7: aplicación de las estructuras de almacenamiento.
     */
     
+    /**
+     * Método main del juego de la mosca.
+     * 
+     * @param args 
+     */
     public static void main(String[] args) {
         
         int rondas = 0;
