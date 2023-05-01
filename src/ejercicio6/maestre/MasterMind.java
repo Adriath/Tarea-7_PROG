@@ -96,8 +96,11 @@ public class MasterMind {
         }
         
         
-        public String[] comparaArrays(int[] array, int[] arrayUsuario){
+        public boolean comparaArrays(int[] array, int[] arrayUsuario){
             // MÉTODO QUE COMPARA LOS ARRAYS
+            
+            int contadorVerde = 0 ;
+            boolean encontrado = false ;
             
             String[] pista = new String[3] ;
             
@@ -105,54 +108,81 @@ public class MasterMind {
             
             for (int i = 0; i < arrayUsuario.length; i++) 
             {
-                if (resultado.contains(arrayUsuario[i]) && ( array[i] == arrayUsuario[i]) ) 
+                if (resultado.contains(arrayUsuario[i]) && ( array[i] == arrayUsuario[i]) )
+                    /* Si los valores de la combinación introducida están contenidos en 
+                    la combinación a adivinar y, además, coinciden las posiciones.
+                    
+                    Suma al contador para contabilizar si se ha adivinado todo.
+                    */
                 {
                     pista[i] = Utilidades.coloreaCadena("v", Utilidades.verde) ;
+                    
+                    contadorVerde++ ;
                 }
+                
                 else if (resultado.contains(arrayUsuario[i]) && ( array[i] != arrayUsuario[i]) ) 
+                    /* Si los valores de la combinación introducida están contenidos en
+                    la combincación a adivinar pero no coinciden las posiciones.
+                    */
                 {
                     pista[i] = Utilidades.coloreaCadena("a", Utilidades.amarillo) ;
                 }
                 
                 else
+                    // En caso de que no haya coincidencia de ningún tipo.
                 {
                     pista[i] = Utilidades.coloreaCadena("r", Utilidades.rojo) ;
                 }
             }
             
-            return pista ;
+            if (contadorVerde == 3) 
+            {
+                encontrado = true ;
+            }
+            
+            for (String i : pista) // Muestra las pistas recogidas.
+            {
+                System.out.print(i + " ");
+            }
+            
+            contadorVerde = 0 ;
+                /* El contador vuelve a ser 0 porque este método está pensado para ser ejecutado en un bucle.
+                Siguiendo esta lógica, si no reiniciamos el valor, se va a acumular el conteo de los aciertos (verde) 
+                de un intento a otro. Al reiniciarlo se comienza a 0 en cada interacción por lo que solamente se puede 
+                llegar a 3 si se adivina en el mismo intento.
+                */
+            
+            return encontrado ;
         }
         
         public boolean jugar(){
+            // MÉTODO PARA JUGAR UNA PARTIDA AL MASTERMIND.
             
             int intentos = 1 ;
-            int contadorVerde = 0 ;
             boolean encontrado = false ;
             
             String[] pista = new String[3] ;
             
-            generaValoresAleatorios(this.array) ;
+            generaValoresAleatorios(this.array) ; // Genera y asigna los dígitos aleatorios que habrá que adivinar
             
             while (intentos <= 7 && !encontrado) {
-                // Si no se han superado los intentos y no se ha adivinado la combinación, ejecuta el código.
+                // Si no se han superado los intentos y no se ha adivinado la combinación, ejecuta el código
                 
-                System.out.println("\nINTENTO " + intentos);
+                System.out.println("\nINTENTO " + intentos); // Indica por pantalla el intento en curso
                 System.out.println("---------------");
                 
-                for (int i : array) { // ----------------- PROVISIONAL ------------------------
+                for (int i : array) { // -------- BUCLE FOR PARA PRUEBAS. COMENTAR PARA QUE NO APAREZCA EL RESULTADO -------------
+                    
                     System.out.print(i + " ");
                 }
                 
-                this.arrayUsuario = pideValoresAUsuario() ;
-                pista = comparaArrays(this.array, this.arrayUsuario) ;
+                this.arrayUsuario = pideValoresAUsuario() ; // Pide los valores y los almacena
                 
-                for (String i : pista) 
-                {
-                    System.out.print(i + " ") ;
-                }
-                
+                encontrado = comparaArrays(this.array, this.arrayUsuario) ; // Compara las combinaciones, imprime las pistas y evualúa si se ha adivinado.                
                 
             }
+            
+            return encontrado ;
         }
         
         // --------------------------------------------------------------------------------------------------
@@ -177,11 +207,7 @@ public class MasterMind {
             
         arrayUsuario = partida1.pideValoresAUsuario() ;
         
-        pista = partida1.comparaArrays(array, arrayUsuario);
-        
-            for (String i : pista) {
-                System.out.print(i + " ");
-            }
+        partida1.comparaArrays(array, arrayUsuario);
         
     }
 }

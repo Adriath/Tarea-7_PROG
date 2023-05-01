@@ -158,7 +158,7 @@ public class JuegoMosca {
      * @param array Array de dos dimensiones de tipo entero.
      * @return Devuelve true si la mosca ha sido encontrada y false si no.
      */
-    public boolean jugar(int array[][]){ // MÉTODO QUE EJECUTA EL JUEGO
+    public boolean jugar(int array[][]){
         
         int contador = 1 ;
         int posicionJugadorFilas = 0 ;
