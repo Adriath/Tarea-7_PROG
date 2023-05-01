@@ -16,6 +16,11 @@ public class Lanzador {
         UNIDAD 7: aplicación de las estructuras de almacenamiento.
     */
     
+    /**
+     * Mëtodo main del juego de la mosca 2.0.
+     * 
+     * @param args 
+     */
     public static void main(String[] args) {
         
         int rondas = 0;

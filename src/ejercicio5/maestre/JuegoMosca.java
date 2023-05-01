@@ -26,12 +26,19 @@ public class JuegoMosca {
         dejado sin comentar para facilitar la corrección.
     */
     
+    
+    // -------------- DECLARACIÓN DE VARIABLES -----------------
+    
     private int array[][] ;
     private int rondas ;
     private int longitudColumnas ;
     private int longitudFilas ;
     private int numeroMoscas ;
     
+    
+    // -------------- MÉTODOS -----------------
+    
+        // ------ CONSTRUCTOR -----
     
     /**
      * Constructor con parámetros de la clase JuegoMosca.
@@ -51,6 +58,8 @@ public class JuegoMosca {
         this.numeroMoscas = numeroMoscas ;
     }
     
+        // ------- GETTERS & SETTERS -------
+    
     /**
      * Método que devuelve el array de dos dimensiones.
      * 
@@ -60,6 +69,8 @@ public class JuegoMosca {
         return array;
     }
     
+    
+        // ------ MÉTODOS PERSONALIZADOS --------
     
     /**
      * Método que resetea el array y posiciona la mosca (valor 1) en una posición aleatoria.
