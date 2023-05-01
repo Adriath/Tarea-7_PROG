@@ -173,10 +173,10 @@ public class MasterMind {
                 System.out.println("\nINTENTO " + intentos); // Indica por pantalla el intento en curso
                 System.out.println("---------------");
                 
-                for (int i : array) { // -------- BUCLE FOR PARA PRUEBAS. COMENTAR PARA QUE NO APAREZCA EL RESULTADO -------------
-                    
-                    System.out.print(i + " ");
-                }
+//                for (int i : array) { // -------- BUCLE FOR PARA PRUEBAS. COMENTAR PARA QUE NO APAREZCA EL RESULTADO -------------
+//                    
+//                    System.out.print(i + " ");
+//                }
                 
                 this.arrayUsuario = pideValoresAUsuario() ; // Pide los valores y los almacena
                 

@@ -1,6 +1,8 @@
 
 package ejercicio6.maestre;
 
+import utilidades.Utilidades;
+
 /**
  * Lanzador del programa MasterMind.
  * 
@@ -21,6 +23,18 @@ public class Lanzador {
         boolean encontrado = false ;
         
         MasterMind partida1 = new MasterMind() ;
+        
+        System.out.println("-----------------------------------");
+        System.out.println("--- ¡BIENVENIDO/A A MASTERMIND! ---");
+        System.out.println("-----------------------------------\n");
+        System.out.println("\nINSTRUCCIONES:");
+        System.out.println("-----------------");
+        System.out.println("Tendrás 7 intentos para adivinar la combinación de tres dígitos propuesta.");
+        System.out.println("En cada intento se aportará una pista:\n");
+        System.out.println("\t- " + Utilidades.coloreaCadena("Verde", Utilidades.verde) + ": Has acertado ese dígito.");
+        System.out.println("\t- " + Utilidades.coloreaCadena("Amarillo", Utilidades.amarillo) + ": Ese dígito forma parte de la combinación pero en otra posición.");
+        System.out.println("\t- " + Utilidades.coloreaCadena("Rojo", Utilidades.rojo) + ": Ese dígito no está en la combinación.");
+        System.out.println("\n¡COMENCEMOS!\n");
         
         encontrado = partida1.jugar() ;
         
